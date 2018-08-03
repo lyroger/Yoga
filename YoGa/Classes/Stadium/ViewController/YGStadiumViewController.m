@@ -7,16 +7,26 @@
 //
 
 #import "YGStadiumViewController.h"
+#import "YGStadiumCell.h"
 
-@interface YGStadiumViewController ()
+@interface YGStadiumViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,strong) UITableView *tableViewList;
 @end
 
 @implementation YGStadiumViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadSubView];
     // Do any additional setup after loading the view.
+}
+
+- (void)loadSubView{
+    self.tableViewList = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableViewList.dataSource = self;
+    self.tableViewList.delegate = self;
+    [self.view addSubview:self.tableViewList];
 }
 
 - (void)didReceiveMemoryWarning {

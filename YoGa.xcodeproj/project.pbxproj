@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0441E4C771207A5B2E6C39C2 /* libPods-YoGa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */; };
+		04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4DC2114793C00E646BF /* YGStadiumCell.m */; };
 		A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE162111F04E00E6A48A /* AppDelegate.m */; };
 		A78BCE1F2111F04E00E6A48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78BCE1E2111F04E00E6A48A /* Assets.xcassets */; };
 		A78BCE252111F04E00E6A48A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE242111F04E00E6A48A /* main.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04FEA4DB2114793C00E646BF /* YGStadiumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumCell.h; sourceTree = "<group>"; };
+		04FEA4DC2114793C00E646BF /* YGStadiumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumCell.m; sourceTree = "<group>"; };
 		0E623DC9143D5EB30C79F11C /* Pods-YoGa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.debug.xcconfig"; sourceTree = "<group>"; };
 		2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoGa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		659A1613AEB23BB91E3490FA /* Pods-YoGa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.release.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FEA4DA211478E700E646BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04FEA4DB2114793C00E646BF /* YGStadiumCell.h */,
+				04FEA4DC2114793C00E646BF /* YGStadiumCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2754963A7FCFD48DBDBF2569 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,8 +129,8 @@
 		A78BCE2D2111F5DE00E6A48A /* Stadium */ = {
 			isa = PBXGroup;
 			children = (
+				04FEA4DA211478E700E646BF /* View */,
 				A78BCE322111F66200E6A48A /* Model */,
-				A78BCE332111F66200E6A48A /* View */,
 				A78BCE342111F66200E6A48A /* ViewController */,
 			);
 			path = Stadium;
@@ -164,13 +176,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A78BCE332111F66200E6A48A /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A78BCE342111F66200E6A48A /* ViewController */ = {
@@ -348,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */,
+				04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */,
 				A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */,
 				A78BCE252111F04E00E6A48A /* main.m in Sources */,
 				A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */,
