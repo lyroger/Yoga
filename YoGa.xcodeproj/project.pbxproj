@@ -17,6 +17,7 @@
 		A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE3F2111F80200E6A48A /* YGBaseViewController.m */; };
 		A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE432111F96500E6A48A /* YGStadiumViewController.m */; };
 		A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79195E621133D6D0080757B /* YGLoginViewController.m */; };
+		A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF6BF02118492D001D30C3 /* YGStadiumModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		A78BCE47211201E200E6A48A /* Common_Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common_Define.h; sourceTree = "<group>"; };
 		A79195E521133D6D0080757B /* YGLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGLoginViewController.h; sourceTree = "<group>"; };
 		A79195E621133D6D0080757B /* YGLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGLoginViewController.m; sourceTree = "<group>"; };
+		A7FF6BEF2118492D001D30C3 /* YGStadiumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumModel.h; sourceTree = "<group>"; };
+		A7FF6BF02118492D001D30C3 /* YGStadiumModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 		A78BCE322111F66200E6A48A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7FF6BEF2118492D001D30C3 /* YGStadiumModel.h */,
+				A7FF6BF02118492D001D30C3 /* YGStadiumModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */,
 				A78BCE382111F73900E6A48A /* YGMainTabbarViewController.m in Sources */,
 				A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */,
+				A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */,
 				A78BCE3B2111F7C200E6A48A /* YGMeViewConter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

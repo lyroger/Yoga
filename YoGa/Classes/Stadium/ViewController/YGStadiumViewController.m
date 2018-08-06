@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"场馆";
     [self loadSubView];
     // Do any additional setup after loading the view.
 }
@@ -26,7 +27,20 @@
     self.tableViewList = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableViewList.dataSource = self;
     self.tableViewList.delegate = self;
+    [self.tableViewList registerClass:[YGStadiumCell class] forCellReuseIdentifier:@"YGStadiumCell"];
     [self.view addSubview:self.tableViewList];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YGStadiumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YGStadiumCell"];
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
