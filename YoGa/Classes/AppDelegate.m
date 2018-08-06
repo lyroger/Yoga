@@ -22,7 +22,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.tabBarVC = [[YGMainTabbarViewController alloc] init];
 //    YGLoginViewController *vc = [[YGLoginViewController alloc] init];
-    self.window.rootViewController = vc;
+    self.window.rootViewController = self.tabBarVC;
     [self.window makeKeyAndVisible];
     return YES;
 }
