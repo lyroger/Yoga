@@ -22,9 +22,9 @@
 
 - (void)loadSubView{
     UIImageView *logoImage = [UIImageView new];
-    logoImage.backgroundColor = UIColorHex(0xf4f4f4);
     logoImage.layer.cornerRadius = 40;
     logoImage.layer.masksToBounds = YES;
+    logoImage.image = [UIImage imageNamed:@"yogachain_ic"];
     [self.view addSubview:logoImage];
     
     UIView *userNameContent = [UIView new];
@@ -34,7 +34,7 @@
     [self.view addSubview:codeContent];
     
     UIImageView *userIcon = [UIImageView new];
-    userIcon.backgroundColor = UIColorHex(0xf4f4f4);
+    userIcon.image = [UIImage imageNamed:@"login_ic_01"];
     [userNameContent addSubview:userIcon];
     
     UITextField *userText = [UITextField new];
@@ -49,7 +49,7 @@
     [userNameContent addSubview:msgCodeButton];
     
     UIImageView *codeIcon = [UIImageView new];
-    codeIcon.backgroundColor = UIColorHex(0xf4f4f4);
+    codeIcon.image = [UIImage imageNamed:@"login_ic_02"];
     [codeContent addSubview:codeIcon];
     
     UITextField *codeText = [UITextField new];

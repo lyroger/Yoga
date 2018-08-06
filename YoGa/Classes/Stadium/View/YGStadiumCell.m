@@ -28,28 +28,29 @@
         [self.contentView addSubview:self.imageHead];
 
         self.labelName = [UILabel new];
-        self.labelName.font = [UIFont systemFontOfSize:16];
+        self.labelName.font = [UIFont systemFontOfSize:15];
+        self.labelName.textColor = UIColorHex(0x333333);
         [self.contentView addSubview:self.labelName];
 
         self.labelAddress = [UILabel new];
-        self.labelAddress.font = [UIFont systemFontOfSize:14];
-        self.labelDistance.textColor = UIColorHex(0x333333);
+        self.labelAddress.font = [UIFont systemFontOfSize:12];
+        self.labelDistance.textColor = UIColorHex(0x505050);
         [self.contentView addSubview:self.labelAddress];
 
         self.labelDistance = [UILabel new];
-        self.labelDistance.font = [UIFont systemFontOfSize:14];
-        self.labelDistance.textColor = UIColorHex(0x333333);
+        self.labelDistance.font = [UIFont systemFontOfSize:10];
+        self.labelDistance.textColor = UIColorHex(0x808080);
         [self.contentView addSubview:self.labelDistance];
 
         [self.imageHead mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.contentView.mas_centerY);
             make.left.mas_equalTo(15);
-            make.size.mas_equalTo(CGSizeMake(140, 80));
+            make.size.mas_equalTo(CGSizeMake(60, 60));
         }];
 
         [self.labelName mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.imageHead.mas_right).mas_offset(8);
-            make.top.mas_equalTo(10);
+            make.top.mas_equalTo(15);
             make.right.mas_equalTo(-15);
         }];
 
@@ -67,6 +68,14 @@
 
     }
     return self;
+}
+
+- (void)model:(YGStadiumModel*)model
+{
+    self.labelName.text = model.name;
+    self.labelAddress.text = model.address;
+    self.labelDistance.text = model.distance;
+    [self.imageHead sd_setImageWithURL:model.imageURL placeholderImage:[UIImage imageNamed:@""]];
 }
 
 - (void)awakeFromNib {

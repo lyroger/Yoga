@@ -10,6 +10,7 @@ pod 'LKDBHelper','2.4.4'
 pod 'IQKeyboardManager','3.3.7'
 pod 'MJRefresh'
 pod 'MBProgressHUD'
+pod 'SDWebImage'
 #图库多选
 pod 'TZImagePickerController','1.9.6'
 end

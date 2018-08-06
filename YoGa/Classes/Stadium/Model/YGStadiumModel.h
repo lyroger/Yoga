@@ -10,4 +10,10 @@
 
 @interface YGStadiumModel : NSObject
 
+@property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *address;
+@property (nonatomic,copy) NSString *distance;
+@property (nonatomic,copy) NSString *imageURL;
+@property (nonatomic,assign) NSInteger stadiumId;
+
 @end

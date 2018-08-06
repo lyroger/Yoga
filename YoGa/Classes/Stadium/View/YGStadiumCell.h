@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YGStadiumModel.h"
 
 @interface YGStadiumCell : UITableViewCell
 
+- (void)model:(YGStadiumModel*)model;
 @end

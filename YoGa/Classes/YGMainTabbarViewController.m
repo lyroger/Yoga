@@ -31,8 +31,8 @@
     UINavigationController *meNav = [[UINavigationController alloc] initWithRootViewController:meController];
     
     [self createWithArrayViewControllers:@[homeNav, meNav]
-                        arrayImageNormal:@[@"icon_tab_home", @"icon_tab_me"]
-                        arrayImageSelect:@[@"icon_tab_home_tap", @"icon_tab_me_tap"]
+                        arrayImageNormal:@[@"tab_01_normal", @"tab_02_normal"]
+                        arrayImageSelect:@[@"tab_01_select", @"tab_02_select"]
                               arrayTitle:@[@"场馆" ,@"我"]];
 }
 
@@ -42,10 +42,11 @@
                             arrayTitle:(NSArray *)arrayTitle
 {
     self.viewControllers = viewControllers;
-//    [self.tabBar setSelectedImageTintColor:kMainColor];
-    self.tabBar.tintColor = kMainColor;
-    self.tabBar.barTintColor = [UIColor whiteColor];
-    
+//    [self.tabBar setSelectedImageTintColor:UIColorHex(0x121212)];
+    self.tabBar.backgroundColor = [UIColor whiteColor];
+    self.tabBar.tintColor = UIColorHex(0x121212);
+    self.tabBar.barTintColor = UIColorHex(0x121212);
+
     //修改tabbar顶部上的一条黑线
     CGRect rect = CGRectMake(0, 0, kScreenWidth, 49);
     UIGraphicsBeginImageContext(rect.size);
@@ -57,11 +58,11 @@
     [self.tabBar setBackgroundImage:img];
     [self.tabBar setShadowImage:img];
     self.delegate = self;
-    
+
     //用自己的颜色
     self.tabBar.layer.borderWidth = 0.5;
     self.tabBar.layer.borderColor = UIColorHex(0xCCCCCC).CGColor;
-    
+
     for (int i = 0; i < self.viewControllers.count; i++)
     {
         UIViewController *vc = self.viewControllers[i];
