@@ -9,7 +9,20 @@
 /* Begin PBXBuildFile section */
 		0441E4C771207A5B2E6C39C2 /* libPods-YoGa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */; };
 		04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4DC2114793C00E646BF /* YGStadiumCell.m */; };
-		A71F6C342118987900DDFA85 /* YGImageTextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A71F6C332118987900DDFA85 /* YGImageTextButton.m */; };
+		A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */; };
+		A7066CE0211FCA9200B92231 /* YGStadiumDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDF211FCA9200B92231 /* YGStadiumDetailHeadView.m */; };
+		A7066CE3211FCB5800B92231 /* YGCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CE2211FCB5800B92231 /* YGCourseCell.m */; };
+		A7066CE6211FCCFC00B92231 /* YGCourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CE5211FCCFC00B92231 /* YGCourseModel.m */; };
+		A7066CE9211FCE6200B92231 /* YGImageTextHView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CE8211FCE6200B92231 /* YGImageTextHView.m */; };
+		A7066CEC211FE50100B92231 /* YGSelectedDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CEB211FE50100B92231 /* YGSelectedDateView.m */; };
+		A7066CEF211FE78900B92231 /* YGSelectDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CEE211FE78900B92231 /* YGSelectDateModel.m */; };
+		A7066CF22120148B00B92231 /* YGMyCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CF12120148B00B92231 /* YGMyCourseViewController.m */; };
+		A7066CF52120149D00B92231 /* YGFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CF42120149D00B92231 /* YGFeedBackViewController.m */; };
+		A7066CF8212014B700B92231 /* YGAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CF7212014B700B92231 /* YGAboutViewController.m */; };
+		A7066CFB212014D700B92231 /* YGSelfInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CFA212014D700B92231 /* YGSelfInfoViewController.m */; };
+		A7066CFF2120272D00B92231 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CFE2120272D00B92231 /* UITextView+PlaceHolder.m */; };
+		A7066D03212027CB00B92231 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066D02212027CB00B92231 /* UIView+Frame.m */; };
+		A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */ = {isa = PBXBuildFile; fileRef = A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */; };
 		A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE162111F04E00E6A48A /* AppDelegate.m */; };
 		A78BCE1F2111F04E00E6A48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78BCE1E2111F04E00E6A48A /* Assets.xcassets */; };
 		A78BCE252111F04E00E6A48A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE242111F04E00E6A48A /* main.m */; };
@@ -27,8 +40,34 @@
 		0E623DC9143D5EB30C79F11C /* Pods-YoGa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.debug.xcconfig"; sourceTree = "<group>"; };
 		2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoGa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		659A1613AEB23BB91E3490FA /* Pods-YoGa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.release.xcconfig"; sourceTree = "<group>"; };
-		A71F6C322118987900DDFA85 /* YGImageTextButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGImageTextButton.h; sourceTree = "<group>"; };
-		A71F6C332118987900DDFA85 /* YGImageTextButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGImageTextButton.m; sourceTree = "<group>"; };
+		A7066CDB211FC9B100B92231 /* YGStadiumDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumDetailVC.h; sourceTree = "<group>"; };
+		A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumDetailVC.m; sourceTree = "<group>"; };
+		A7066CDE211FCA9200B92231 /* YGStadiumDetailHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumDetailHeadView.h; sourceTree = "<group>"; };
+		A7066CDF211FCA9200B92231 /* YGStadiumDetailHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumDetailHeadView.m; sourceTree = "<group>"; };
+		A7066CE1211FCB5800B92231 /* YGCourseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGCourseCell.h; sourceTree = "<group>"; };
+		A7066CE2211FCB5800B92231 /* YGCourseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGCourseCell.m; sourceTree = "<group>"; };
+		A7066CE4211FCCFC00B92231 /* YGCourseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGCourseModel.h; sourceTree = "<group>"; };
+		A7066CE5211FCCFC00B92231 /* YGCourseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGCourseModel.m; sourceTree = "<group>"; };
+		A7066CE7211FCE6200B92231 /* YGImageTextHView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGImageTextHView.h; sourceTree = "<group>"; };
+		A7066CE8211FCE6200B92231 /* YGImageTextHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGImageTextHView.m; sourceTree = "<group>"; };
+		A7066CEA211FE50100B92231 /* YGSelectedDateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGSelectedDateView.h; sourceTree = "<group>"; };
+		A7066CEB211FE50100B92231 /* YGSelectedDateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGSelectedDateView.m; sourceTree = "<group>"; };
+		A7066CED211FE78900B92231 /* YGSelectDateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGSelectDateModel.h; sourceTree = "<group>"; };
+		A7066CEE211FE78900B92231 /* YGSelectDateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGSelectDateModel.m; sourceTree = "<group>"; };
+		A7066CF02120148B00B92231 /* YGMyCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMyCourseViewController.h; sourceTree = "<group>"; };
+		A7066CF12120148B00B92231 /* YGMyCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMyCourseViewController.m; sourceTree = "<group>"; };
+		A7066CF32120149D00B92231 /* YGFeedBackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGFeedBackViewController.h; sourceTree = "<group>"; };
+		A7066CF42120149D00B92231 /* YGFeedBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGFeedBackViewController.m; sourceTree = "<group>"; };
+		A7066CF6212014B700B92231 /* YGAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGAboutViewController.h; sourceTree = "<group>"; };
+		A7066CF7212014B700B92231 /* YGAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGAboutViewController.m; sourceTree = "<group>"; };
+		A7066CF9212014D700B92231 /* YGSelfInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGSelfInfoViewController.h; sourceTree = "<group>"; };
+		A7066CFA212014D700B92231 /* YGSelfInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGSelfInfoViewController.m; sourceTree = "<group>"; };
+		A7066CFD2120272D00B92231 /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
+		A7066CFE2120272D00B92231 /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
+		A7066D01212027BB00B92231 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		A7066D02212027CB00B92231 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		A71F6C322118987900DDFA85 /* UIButton+ImageText_V.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageText_V.h"; sourceTree = "<group>"; };
+		A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageText_V.m"; sourceTree = "<group>"; };
 		A78BCE122111F04E00E6A48A /* YoGa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoGa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78BCE152111F04E00E6A48A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A78BCE162111F04E00E6A48A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,6 +108,14 @@
 			children = (
 				04FEA4DB2114793C00E646BF /* YGStadiumCell.h */,
 				04FEA4DC2114793C00E646BF /* YGStadiumCell.m */,
+				A7066CDE211FCA9200B92231 /* YGStadiumDetailHeadView.h */,
+				A7066CDF211FCA9200B92231 /* YGStadiumDetailHeadView.m */,
+				A7066CE1211FCB5800B92231 /* YGCourseCell.h */,
+				A7066CE2211FCB5800B92231 /* YGCourseCell.m */,
+				A7066CE7211FCE6200B92231 /* YGImageTextHView.h */,
+				A7066CE8211FCE6200B92231 /* YGImageTextHView.m */,
+				A7066CEA211FE50100B92231 /* YGSelectedDateView.h */,
+				A7066CEB211FE50100B92231 /* YGSelectedDateView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,9 +137,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A7066CFC2120271800B92231 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				A7066CFD2120272D00B92231 /* UITextView+PlaceHolder.h */,
+				A7066CFE2120272D00B92231 /* UITextView+PlaceHolder.m */,
+			);
+			path = UITextView;
+			sourceTree = "<group>";
+		};
+		A7066D00212027A900B92231 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				A7066D01212027BB00B92231 /* UIView+Frame.h */,
+				A7066D02212027CB00B92231 /* UIView+Frame.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		A71F6C30211897BE00DDFA85 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				A7066D00212027A900B92231 /* UIView */,
+				A7066CFC2120271800B92231 /* UITextView */,
 				A71F6C31211897D100DDFA85 /* UIButton */,
 			);
 			path = Categorys;
@@ -101,8 +168,8 @@
 		A71F6C31211897D100DDFA85 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
-				A71F6C322118987900DDFA85 /* YGImageTextButton.h */,
-				A71F6C332118987900DDFA85 /* YGImageTextButton.m */,
+				A71F6C322118987900DDFA85 /* UIButton+ImageText_V.h */,
+				A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -190,6 +257,14 @@
 				A78BCE3A2111F7C200E6A48A /* YGMeViewConter.m */,
 				A79195E521133D6D0080757B /* YGLoginViewController.h */,
 				A79195E621133D6D0080757B /* YGLoginViewController.m */,
+				A7066CF02120148B00B92231 /* YGMyCourseViewController.h */,
+				A7066CF12120148B00B92231 /* YGMyCourseViewController.m */,
+				A7066CF32120149D00B92231 /* YGFeedBackViewController.h */,
+				A7066CF42120149D00B92231 /* YGFeedBackViewController.m */,
+				A7066CF6212014B700B92231 /* YGAboutViewController.h */,
+				A7066CF7212014B700B92231 /* YGAboutViewController.m */,
+				A7066CF9212014D700B92231 /* YGSelfInfoViewController.h */,
+				A7066CFA212014D700B92231 /* YGSelfInfoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -199,6 +274,10 @@
 			children = (
 				A7FF6BEF2118492D001D30C3 /* YGStadiumModel.h */,
 				A7FF6BF02118492D001D30C3 /* YGStadiumModel.m */,
+				A7066CE4211FCCFC00B92231 /* YGCourseModel.h */,
+				A7066CE5211FCCFC00B92231 /* YGCourseModel.m */,
+				A7066CED211FE78900B92231 /* YGSelectDateModel.h */,
+				A7066CEE211FE78900B92231 /* YGSelectDateModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +287,8 @@
 			children = (
 				A78BCE422111F96500E6A48A /* YGStadiumViewController.h */,
 				A78BCE432111F96500E6A48A /* YGStadiumViewController.m */,
+				A7066CDB211FC9B100B92231 /* YGStadiumDetailVC.h */,
+				A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -374,16 +455,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A71F6C342118987900DDFA85 /* YGImageTextButton.m in Sources */,
+				A7066CF8212014B700B92231 /* YGAboutViewController.m in Sources */,
+				A7066D03212027CB00B92231 /* UIView+Frame.m in Sources */,
+				A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */,
+				A7066CEC211FE50100B92231 /* YGSelectedDateView.m in Sources */,
 				A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */,
+				A7066CE6211FCCFC00B92231 /* YGCourseModel.m in Sources */,
 				04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */,
+				A7066CEF211FE78900B92231 /* YGSelectDateModel.m in Sources */,
+				A7066CFF2120272D00B92231 /* UITextView+PlaceHolder.m in Sources */,
 				A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */,
 				A78BCE252111F04E00E6A48A /* main.m in Sources */,
+				A7066CE3211FCB5800B92231 /* YGCourseCell.m in Sources */,
 				A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */,
 				A78BCE382111F73900E6A48A /* YGMainTabbarViewController.m in Sources */,
 				A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */,
 				A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */,
+				A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */,
+				A7066CE9211FCE6200B92231 /* YGImageTextHView.m in Sources */,
+				A7066CF52120149D00B92231 /* YGFeedBackViewController.m in Sources */,
 				A78BCE3B2111F7C200E6A48A /* YGMeViewConter.m in Sources */,
+				A7066CFB212014D700B92231 /* YGSelfInfoViewController.m in Sources */,
+				A7066CE0211FCA9200B92231 /* YGStadiumDetailHeadView.m in Sources */,
+				A7066CF22120148B00B92231 /* YGMyCourseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

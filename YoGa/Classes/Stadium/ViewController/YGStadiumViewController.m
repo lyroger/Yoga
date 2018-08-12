@@ -9,11 +9,13 @@
 #import "YGStadiumViewController.h"
 #import "YGStadiumCell.h"
 #import "YGStadiumModel.h"
+#import "YGStadiumDetailVC.h"
 
 @interface YGStadiumViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *tableViewList;
 @property (nonatomic,strong) NSMutableArray *dataList;
+@property (nonatomic,strong) UIImageView *headView;
 @end
 
 @implementation YGStadiumViewController
@@ -32,10 +34,20 @@
     return _dataList;
 }
 
+- (UIImageView*)headView
+{
+    if (!_headView) {
+        _headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 160)];
+        _headView.backgroundColor = UIColorHex(0xf4f4f4);
+    }
+    return _headView;
+}
+
 - (void)loadSubView{
     self.tableViewList = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableViewList.dataSource = self;
     self.tableViewList.delegate = self;
+    self.tableViewList.tableHeaderView = self.headView;
     [self.tableViewList registerClass:[YGStadiumCell class] forCellReuseIdentifier:@"YGStadiumCell"];
     [self.view addSubview:self.tableViewList];
 
@@ -52,6 +64,15 @@
         [self.dataList addObject:model];
     }
     [self.tableViewList reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YGStadiumModel *model = self.dataList[indexPath.row];
+    YGStadiumDetailVC *vc = [[YGStadiumDetailVC alloc] init];
+    vc.model = model;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -75,7 +75,7 @@
     self.labelName.text = model.name;
     self.labelAddress.text = model.address;
     self.labelDistance.text = model.distance;
-    [self.imageHead sd_setImageWithURL:model.imageURL placeholderImage:[UIImage imageNamed:@""]];
+    [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@""]];
 }
 
 - (void)awakeFromNib {

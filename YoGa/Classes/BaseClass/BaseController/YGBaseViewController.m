@@ -8,8 +8,10 @@
 
 #import "YGBaseViewController.h"
 
-@interface YGBaseViewController ()
-
+@interface YGBaseViewController ()<UIGestureRecognizerDelegate>
+{
+    UITapGestureRecognizer  *_tap; // 添加手势用于点击空白处收回键盘
+}
 @end
 
 @implementation YGBaseViewController
@@ -17,6 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)textFieldReturn
+{
+    if (!_tap) {
+        _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        _tap.cancelsTouchesInView = NO; // 当前视图识别手势后把事件传递出后
+        _tap.delegate = self;
+        [self.view addGestureRecognizer:_tap];
+    }
+}
+
+- (void)tapped:(id)sender
+{
+    [self.view endEditing:YES];
+    [self.navigationItem.titleView endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

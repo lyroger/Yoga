@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YGBaseViewController : UIViewController
-
+// 点击空白处键盘收回
+- (void)textFieldReturn;
 @end
