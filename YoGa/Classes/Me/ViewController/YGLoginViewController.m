@@ -7,6 +7,7 @@
 //
 
 #import "YGLoginViewController.h"
+#import "YGMessageModel.h"
 
 @interface YGLoginViewController ()
 
@@ -46,6 +47,7 @@
     [msgCodeButton setTitleColor:UIColorRGB(11, 12, 13) forState:UIControlStateNormal];
     [msgCodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
     msgCodeButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [msgCodeButton addTarget:self action:@selector(sendCode) forControlEvents:UIControlEventTouchUpInside];
     [userNameContent addSubview:msgCodeButton];
     
     UIImageView *codeIcon = [UIImageView new];
@@ -144,6 +146,12 @@
         make.right.mas_equalTo(@(-15));
         make.height.mas_equalTo(46);
         make.top.mas_equalTo(codeContent.mas_bottom).mas_offset(50);
+    }];
+}
+
+- (void)sendCode{
+    [YGMessageModel getCodeMessageWithPhone:@"18673153419" success:^(StatusModel *data) {
+        NSLog(@"data = %@",data);
     }];
 }
 

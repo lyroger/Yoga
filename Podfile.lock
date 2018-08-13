@@ -26,6 +26,7 @@ PODS:
     - FMDB
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
+  - MJExtension (3.0.15.1)
   - MJRefresh (3.1.15.3)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -45,24 +46,11 @@ DEPENDENCIES:
   - LKDBHelper (= 2.4.4)
   - Masonry
   - MBProgressHUD
+  - MJExtension
   - MJRefresh
   - SDWebImage
   - SSKeychain
   - TZImagePickerController (= 1.9.6)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - FMDB
-    - IQKeyboardManager
-    - LKDBHelper
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - SDWebImage
-    - SQLCipher
-    - SSKeychain
-    - TZImagePickerController
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -71,12 +59,13 @@ SPEC CHECKSUMS:
   LKDBHelper: cf467ff69aaf1e13bd4964aca3a79881d54c6d14
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   TZImagePickerController: 276dc7c0cc70da9ee354046474b405d87ef81c89
 
-PODFILE CHECKSUM: 7c50083dcb1ac2ae90606790730faada7cf73e9f
+PODFILE CHECKSUM: 04d57973834aa52a424bdceb03c80003492270df
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.2.1

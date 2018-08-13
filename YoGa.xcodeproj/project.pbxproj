@@ -22,6 +22,16 @@
 		A7066CFB212014D700B92231 /* YGSelfInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CFA212014D700B92231 /* YGSelfInfoViewController.m */; };
 		A7066CFF2120272D00B92231 /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CFE2120272D00B92231 /* UITextView+PlaceHolder.m */; };
 		A7066D03212027CB00B92231 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066D02212027CB00B92231 /* UIView+Frame.m */; };
+		A71877412121C3290097951E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877362121C3290097951E /* BaseModel.m */; };
+		A71877422121C3290097951E /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877382121C3290097951E /* HttpClient.m */; };
+		A71877432121C3290097951E /* NetCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A718773A2121C3290097951E /* NetCache.m */; };
+		A71877442121C3290097951E /* NSDictionary+BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A718773C2121C3290097951E /* NSDictionary+BaseModel.m */; };
+		A71877452121C3290097951E /* NSString+BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A718773E2121C3290097951E /* NSString+BaseModel.m */; };
+		A71877462121C3290097951E /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877402121C3290097951E /* StatusModel.m */; };
+		A71877492121C3C00097951E /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877472121C3C00097951E /* NSString+Hash.m */; };
+		A718774C2121C45E0097951E /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A718774B2121C45E0097951E /* DataManager.m */; };
+		A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A718774E2121C48E0097951E /* NSDate+Extension.m */; };
+		A71877522121CBA90097951E /* YGMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877512121CBA90097951E /* YGMessageModel.m */; };
 		A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */ = {isa = PBXBuildFile; fileRef = A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */; };
 		A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE162111F04E00E6A48A /* AppDelegate.m */; };
 		A78BCE1F2111F04E00E6A48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78BCE1E2111F04E00E6A48A /* Assets.xcassets */; };
@@ -66,6 +76,27 @@
 		A7066CFE2120272D00B92231 /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
 		A7066D01212027BB00B92231 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		A7066D02212027CB00B92231 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		A71877342121C3290097951E /* AFHTTPSessionManager_BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager_BaseModel.h; sourceTree = "<group>"; };
+		A71877352121C3290097951E /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		A71877362121C3290097951E /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		A71877372121C3290097951E /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		A71877382121C3290097951E /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		A71877392121C3290097951E /* NetCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetCache.h; sourceTree = "<group>"; };
+		A718773A2121C3290097951E /* NetCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetCache.m; sourceTree = "<group>"; };
+		A718773B2121C3290097951E /* NSDictionary+BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BaseModel.h"; sourceTree = "<group>"; };
+		A718773C2121C3290097951E /* NSDictionary+BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BaseModel.m"; sourceTree = "<group>"; };
+		A718773D2121C3290097951E /* NSString+BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BaseModel.h"; sourceTree = "<group>"; };
+		A718773E2121C3290097951E /* NSString+BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BaseModel.m"; sourceTree = "<group>"; };
+		A718773F2121C3290097951E /* StatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusModel.h; sourceTree = "<group>"; };
+		A71877402121C3290097951E /* StatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusModel.m; sourceTree = "<group>"; };
+		A71877472121C3C00097951E /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		A71877482121C3C00097951E /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		A718774A2121C45E0097951E /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A718774B2121C45E0097951E /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A718774D2121C48D0097951E /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		A718774E2121C48E0097951E /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		A71877502121CBA90097951E /* YGMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMessageModel.h; sourceTree = "<group>"; };
+		A71877512121CBA90097951E /* YGMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMessageModel.m; sourceTree = "<group>"; };
 		A71F6C322118987900DDFA85 /* UIButton+ImageText_V.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageText_V.h"; sourceTree = "<group>"; };
 		A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageText_V.m"; sourceTree = "<group>"; };
 		A78BCE122111F04E00E6A48A /* YoGa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoGa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,9 +186,35 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		A71877332121C3290097951E /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				A718774A2121C45E0097951E /* DataManager.h */,
+				A718774B2121C45E0097951E /* DataManager.m */,
+				A71877342121C3290097951E /* AFHTTPSessionManager_BaseModel.h */,
+				A71877352121C3290097951E /* BaseModel.h */,
+				A71877362121C3290097951E /* BaseModel.m */,
+				A71877372121C3290097951E /* HttpClient.h */,
+				A71877382121C3290097951E /* HttpClient.m */,
+				A71877392121C3290097951E /* NetCache.h */,
+				A718773A2121C3290097951E /* NetCache.m */,
+				A718773B2121C3290097951E /* NSDictionary+BaseModel.h */,
+				A718773C2121C3290097951E /* NSDictionary+BaseModel.m */,
+				A718773D2121C3290097951E /* NSString+BaseModel.h */,
+				A718773E2121C3290097951E /* NSString+BaseModel.m */,
+				A718773F2121C3290097951E /* StatusModel.h */,
+				A71877402121C3290097951E /* StatusModel.m */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
 		A71F6C30211897BE00DDFA85 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				A718774D2121C48D0097951E /* NSDate+Extension.h */,
+				A718774E2121C48E0097951E /* NSDate+Extension.m */,
+				A71877482121C3C00097951E /* NSString+Hash.h */,
+				A71877472121C3C00097951E /* NSString+Hash.m */,
 				A7066D00212027A900B92231 /* UIView */,
 				A7066CFC2120271800B92231 /* UITextView */,
 				A71F6C31211897D100DDFA85 /* UIButton */,
@@ -239,6 +296,8 @@
 		A78BCE2F2111F62F00E6A48A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A71877502121CBA90097951E /* YGMessageModel.h */,
+				A71877512121CBA90097951E /* YGMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +364,7 @@
 		A78BCE3C2111F7D700E6A48A /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				A71877332121C3290097951E /* BaseModel */,
 				A78BCE3D2111F7E200E6A48A /* BaseController */,
 			);
 			path = BaseClass;
@@ -351,6 +411,7 @@
 				A78BCE0F2111F04E00E6A48A /* Frameworks */,
 				A78BCE102111F04E00E6A48A /* Resources */,
 				786B02BBF11AC1460D0BCA9C /* [CP] Copy Pods Resources */,
+				F2D3C5DD4C8E57F5B9222049 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -421,7 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		786B02BBF11AC1460D0BCA9C /* [CP] Copy Pods Resources */ = {
@@ -448,6 +509,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoGa/Pods-YoGa-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2D3C5DD4C8E57F5B9222049 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoGa/Pods-YoGa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -457,25 +533,35 @@
 			files = (
 				A7066CF8212014B700B92231 /* YGAboutViewController.m in Sources */,
 				A7066D03212027CB00B92231 /* UIView+Frame.m in Sources */,
+				A71877422121C3290097951E /* HttpClient.m in Sources */,
 				A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */,
+				A71877432121C3290097951E /* NetCache.m in Sources */,
 				A7066CEC211FE50100B92231 /* YGSelectedDateView.m in Sources */,
+				A71877452121C3290097951E /* NSString+BaseModel.m in Sources */,
 				A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */,
 				A7066CE6211FCCFC00B92231 /* YGCourseModel.m in Sources */,
 				04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */,
 				A7066CEF211FE78900B92231 /* YGSelectDateModel.m in Sources */,
 				A7066CFF2120272D00B92231 /* UITextView+PlaceHolder.m in Sources */,
 				A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */,
+				A71877492121C3C00097951E /* NSString+Hash.m in Sources */,
 				A78BCE252111F04E00E6A48A /* main.m in Sources */,
 				A7066CE3211FCB5800B92231 /* YGCourseCell.m in Sources */,
 				A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */,
 				A78BCE382111F73900E6A48A /* YGMainTabbarViewController.m in Sources */,
 				A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */,
+				A71877522121CBA90097951E /* YGMessageModel.m in Sources */,
 				A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */,
+				A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */,
 				A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */,
+				A71877462121C3290097951E /* StatusModel.m in Sources */,
+				A718774C2121C45E0097951E /* DataManager.m in Sources */,
 				A7066CE9211FCE6200B92231 /* YGImageTextHView.m in Sources */,
+				A71877412121C3290097951E /* BaseModel.m in Sources */,
 				A7066CF52120149D00B92231 /* YGFeedBackViewController.m in Sources */,
 				A78BCE3B2111F7C200E6A48A /* YGMeViewConter.m in Sources */,
 				A7066CFB212014D700B92231 /* YGSelfInfoViewController.m in Sources */,
+				A71877442121C3290097951E /* NSDictionary+BaseModel.m in Sources */,
 				A7066CE0211FCA9200B92231 /* YGStadiumDetailHeadView.m in Sources */,
 				A7066CF22120148B00B92231 /* YGMyCourseViewController.m in Sources */,
 			);
