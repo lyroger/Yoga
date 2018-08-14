@@ -15,11 +15,11 @@
 #if isTrueEnvironment
 //正式环境的环境类型
 #define kServerHost         @"http://120.79.17.189:8888"
-#define kServerCurrentPath  @"/ios/"
+#define kServerCurrentPath  @""
 #else
 // 测试环境
 #define kServerHost         @"http://120.79.17.189:8888"
-#define kServerCurrentPath  @"/ios/"
+#define kServerCurrentPath  @""
 #endif
 
 

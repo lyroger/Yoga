@@ -6,8 +6,6 @@
 //  Copyright © 2018年 QinYoga. All rights reserved.
 //
 
-#import "BaseModel.h"
-
 @interface YGMessageModel : BaseModel
 + (void)getCodeMessageWithPhone:(NSString*)phone
                         success:(NetResponseBlock)success;

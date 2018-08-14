@@ -30,8 +30,8 @@ typedef enum : NSUInteger {
 + (void)initialize {
     if (self == [BaseModel self]) {
         [HttpClient startWithURL:kServerHost];
-        [HttpClient sharedInstance].responseType = ResponseJSON;
-        [HttpClient sharedInstance].requestType = RequestJSON;
+//        [HttpClient sharedInstance].responseType = ResponseJSON;
+//        [HttpClient sharedInstance].requestType = RequestJSON;
     }
 }
 
@@ -84,7 +84,10 @@ static dispatch_once_t userOnceToken;
 }
 
 + (StatusModel *)statusModelFromJSONObject:(id)object class:(Class) class {
-	StatusModel *statusModel = [StatusModel mj_objectWithKeyValues:object[@"status"]];
+//    StatusModel *statusModel = [StatusModel mj_objectWithKeyValues:object[@"status"]];
+    StatusModel *statusModel = [[StatusModel alloc] init];
+    statusModel.code = [object[@"code"] integerValue];
+    statusModel.msg = object[@"msg"];
 	id returnObject = nil;
 	id rs = object[@"data"];
 	if (rs) {
@@ -419,7 +422,11 @@ static dispatch_once_t userOnceToken;
 			value = [NSJSONSerialization JSONObjectWithData:decodeData
 													options:NSJSONReadingAllowFragments
 													  error:&decodeError];
-		}
+        } else if (kHttpClient.responseType == ResponseOther) {
+            value = [NSJSONSerialization JSONObjectWithData:decodeData
+                                                    options:NSJSONReadingAllowFragments
+                                                      error:&decodeError];
+        }
 	}
 	return value ?: @{};
 }

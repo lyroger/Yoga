@@ -49,8 +49,10 @@ static NSString *kAppUrl;
         self.responseSerializer = [AFXMLParserResponseSerializer serializer];
     }else if(responseType == ResponseJSON){
         self.responseSerializer = [AFJSONResponseSerializer serializer];
+//        [self.responseSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forKey:@"Content-Type"];
     }else{
         self.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [self.responseSerializer setValue:@"application/json;charset=UTF-8" forKey:@"Content-Type"];
     }
 }
 
@@ -60,10 +62,11 @@ static NSString *kAppUrl;
         self.requestSerializer = [AFPropertyListRequestSerializer serializer];
     }else if(requestType == RequestJSON){
         self.requestSerializer = [AFJSONRequestSerializer serializer];
-        [self.requestSerializer setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [self.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forKey:@"Content-Type"];
         self.requestSerializer.timeoutInterval = 30;
     }else{
         self.requestSerializer = [AFHTTPRequestSerializer serializer];
+        [self.requestSerializer setValue:@"application/json;charset=UTF-8" forKey:@"Content-Type"];
     }
 }
 

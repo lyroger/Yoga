@@ -13,9 +13,9 @@
                         success:(NetResponseBlock)success
 {
     CreateParamsDic;
-    DicObjectSet(phone, @"phoneNo");
+    DicValueSet(phone, @"phoneNo");
     [self dataTaskMethod:HTTPMethodPOST
-                    path:@"auth/sendSmsCode"
+                    path:@"/app/auth/sendSmsCode"
                   params:ParamsDic
                   target:nil success:success];
 }

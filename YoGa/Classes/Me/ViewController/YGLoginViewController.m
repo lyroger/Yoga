@@ -152,6 +152,11 @@
 - (void)sendCode{
     [YGMessageModel getCodeMessageWithPhone:@"18673153419" success:^(StatusModel *data) {
         NSLog(@"data = %@",data);
+        if (data.code==0) {
+            
+        } else {
+            
+        }
     }];
 }
 
