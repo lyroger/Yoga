@@ -12,6 +12,8 @@ pod 'MJRefresh'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'MJExtension'
+pod 'HZActivityIndicatorView'
+pod 'ReactiveCocoa','2.5'
 
 #图库多选
 pod 'TZImagePickerController','1.9.6'

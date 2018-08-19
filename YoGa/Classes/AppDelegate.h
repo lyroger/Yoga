@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) YGMainTabbarViewController *tabBarVC;
-
+- (void)authorizeOperation;
 
 @end
 

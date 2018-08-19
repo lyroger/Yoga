@@ -111,6 +111,7 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                   target:(id)target
                                cacheTime:(NSInteger)cacheTime
                                dbSuccess:(DBResultBlock)dbResult
@@ -129,6 +130,7 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                   target:(id)target
                                  success:(NetResponseBlock)success;
 
@@ -144,6 +146,7 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                  success:(NetResponseBlock)success;
 
 /**
@@ -159,6 +162,7 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 + (NSURLSessionDataTask *)updataFile:(NSString *)path
                                files:(NSArray *)files
                               params:(id)params
+                          networkHUD:(NetworkHUD)networkHUD
                               target:(id)target
                              success:(NetResponseBlock)success;
 

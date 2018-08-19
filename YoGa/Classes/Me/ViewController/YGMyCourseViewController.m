@@ -101,7 +101,7 @@
         model.teacher = @"请老师";
         model.time = @"9:00~10:00";
         model.count = 50;
-        model.courseID = i;
+        model.courseId = i;
         [self.courseList addObject:model];
     }
     [self.tableDetailView reloadData];
@@ -128,10 +128,10 @@
     YGCourseModel *model = [self.courseList objectAtIndex:indexPath.row];
     [cell model:model];
     cell.orderCourse = ^(YGCourseModel *model) {
-        NSLog(@"order %zd",model.courseID);
+        NSLog(@"order %zd",model.courseId);
     };
     cell.cancelCourse = ^(YGCourseModel *model) {
-        NSLog(@"cancel %zd",model.courseID);
+        NSLog(@"cancel %zd",model.courseId);
     };
     return cell;
 }

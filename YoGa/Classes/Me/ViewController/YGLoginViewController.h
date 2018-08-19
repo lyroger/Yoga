@@ -7,7 +7,7 @@
 //
 
 #import "YGBaseViewController.h"
-
+typedef void(^DidLoginComplete)(BOOL successful);
 @interface YGLoginViewController : YGBaseViewController
-
+@property (nonatomic, copy) DidLoginComplete loginCompleteBlock;
 @end

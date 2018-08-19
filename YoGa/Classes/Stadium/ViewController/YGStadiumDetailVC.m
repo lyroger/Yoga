@@ -20,6 +20,8 @@
 @property (nonatomic,strong) YGStadiumDetailHeadView *headView;
 @property (nonatomic,strong) YGSelectedDateView *selectDateView;
 @property (nonatomic,strong) NSMutableArray *courseList;
+@property (nonatomic,strong) NSMutableArray *weekList;
+@property (nonatomic,strong) YGSelectDateModel *currentDateModel;
 @end
 
 @implementation YGStadiumDetailVC
@@ -34,8 +36,16 @@
 {
     if (!_headView) {
         _headView = [[YGStadiumDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 118)];
+        @weakify(self);
         _headView.callPhone = ^{
+            @strongify(self);
             NSLog(@"拨打电话");
+            if (self.stadiumInfo.phoneNo.length) {
+                NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",self.stadiumInfo.phoneNo];
+                UIWebView * callWebview = [[UIWebView alloc] init];
+                [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:num]]];
+                [self.view addSubview:callWebview];
+            }
         };
     }
     return _headView;
@@ -45,11 +55,12 @@
 {
     if (!_selectDateView) {
         _selectDateView = [[YGSelectedDateView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
-        __weak typeof(self) weakSelf = self;
+        @weakify(self);
         _selectDateView.selectedDateBlock = ^(NSInteger index) {
             NSLog(@"index= %zd",index);
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf.tableDetailView reloadData];
+            @strongify(self)
+            self.currentDateModel = [self.weekList objectAtIndex:index];
+            [self loadCoursesData];
         };
     }
     return _selectDateView;
@@ -63,46 +74,51 @@
     return _courseList;
 }
 
+- (NSMutableArray*)weekList
+{
+    if (!_weekList) {
+        _weekList = [[NSMutableArray alloc] init];
+    }
+    return _weekList;
+}
+
 - (void)loadSubView{
     self.tableDetailView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableDetailView.dataSource = self;
     self.tableDetailView.delegate = self;
     self.tableDetailView.tableHeaderView = self.headView;
+    self.tableDetailView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableDetailView registerClass:[YGCourseCell class] forCellReuseIdentifier:@"YGCourseCell"];
     [self.view addSubview:self.tableDetailView];
     
     [self.tableDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
     }];
-    
-    self.headView.labelName.text = @"紫音瑜伽馆";
-    self.headView.phone = @"18688889999";
-    self.headView.address = @"宝安中心 <1km内";
-    self.headView.workTime = @"营业时间 9:00~21:00";
-    
-    for (int i = 0; i<10; i++) {
-        YGCourseModel *model = [YGCourseModel new];
-        model.name = @"户外瑜伽";
-        model.teacher = @"请老师";
-        model.time = @"9:00~10:00";
-        model.count = 50;
-        model.courseID = i;
-        [self.courseList addObject:model];
-    }
-    NSArray *dates = @[@"07-01",@"07-02",@"07-03",@"07-04",@"07-05",@"07-06",@"07-07"];
-    NSArray *weeks = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
-    NSMutableArray *dateWeeks = [NSMutableArray new];
-    for (int i = 0; i<7; i++) {
-        YGSelectDateModel *model = [YGSelectDateModel new];
-        if ([dates[i] isEqualToString:@"07-02"]) {
-            model.selected = YES;
+
+    [self loadDetailInfo];
+}
+
+- (void)loadDetailInfo
+{
+    self.headView.labelName.text = self.stadiumInfo.name;
+    self.headView.phone = self.stadiumInfo.phoneNo;
+    self.headView.address = [NSString stringWithFormat:@"%@ %@",self.stadiumInfo.address,self.stadiumInfo.distance];// @"宝安中心 <1km内";
+    self.headView.workTime = [NSString stringWithFormat:@"营业时间 %@",self.stadiumInfo.businessHours];
+    [self getWeekDateInfo];
+    self.currentDateModel = [self.weekList objectAtIndex:0];
+    [self loadCoursesData];
+}
+
+- (void)loadCoursesData
+{
+    [YGCourseModel getCoursesInfoById:[NSString stringWithFormat:@"%zd",self.stadiumInfo.stadiumId] date:self.currentDateModel.dateValue target:self success:^(StatusModel *data) {
+        if (data.code == 0) {
+            [self.courseList removeAllObjects];
+            NSArray *courses = [YGCourseModel mj_objectArrayWithKeyValuesArray:[data.originalData objectForKey:@"rows"]];
+            [self.courseList addObjectsFromArray:courses];
+            [self.tableDetailView reloadData];
         }
-        model.date = dates[i];
-        model.week = weeks[i];
-        [dateWeeks addObject:model];
-    }
-    [self.selectDateView setData:dateWeeks];
-    [self.tableDetailView reloadData];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -130,13 +146,75 @@
     YGCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YGCourseCell"];
     YGCourseModel *model = [self.courseList objectAtIndex:indexPath.row];
     [cell model:model];
+    @weakify(self)
     cell.orderCourse = ^(YGCourseModel *model) {
-        NSLog(@"order %zd",model.courseID);
+        @strongify(self)
+        NSLog(@"order %zd",model.courseId);
+        [YGCourseModel orderCoursesById:[NSString stringWithFormat:@"%zd",model.classId]
+                                 userId:[YGUserInfo shareUserInfo].userId
+                                 target:self success:^(StatusModel *data) {
+                                     if (data.code == 0) {
+                                         model.orderFlag = 1;
+                                         [self.tableDetailView reloadData];
+                                     }
+            
+        }];
     };
     cell.cancelCourse = ^(YGCourseModel *model) {
-        NSLog(@"cancel %zd",model.courseID);
+        @strongify(self)
+        NSLog(@"cancel %zd",model.courseId);
+        [YGCourseModel cancelCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
+            if (data.code == 0) {
+                model.orderFlag = 0;
+                [self.tableDetailView reloadData];
+            }
+        }];
     };
     return cell;
+}
+
+- (YGSelectDateModel*)getSelectDateModelOffsetIndex:(NSInteger)index
+{
+    NSDate *today = [NSDate date];
+    
+    NSDate *selectedDate = [today dateByAddingTimeInterval:index*24*60*60];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit ;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:selectedDate];
+    
+    NSInteger year = [dateComponent year];
+    NSInteger month = [dateComponent month];
+    NSInteger day = [dateComponent day];
+    NSInteger week = [dateComponent weekday];
+    
+    YGSelectDateModel *model = [YGSelectDateModel new];
+    
+    NSString *monthStr = [NSString stringWithFormat:@"%zd",month];
+    if (month<10) {
+        monthStr = [NSString stringWithFormat:@"0%zd",month];
+    }
+    NSString *dayStr = [NSString stringWithFormat:@"%zd",day];
+    if (day<10) {
+        dayStr = [NSString stringWithFormat:@"0%zd",day];
+    }
+    
+    model.date = [NSString stringWithFormat:@"%@-%@",monthStr,dayStr];
+    model.dateValue = [NSString stringWithFormat:@"%zd%@%@",year,monthStr,dayStr];
+    NSArray *weeks = @[@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
+    model.week = weeks[week-1];
+    return model;
+}
+
+- (void)getWeekDateInfo
+{
+    NSMutableArray *dateWeeks = [NSMutableArray new];
+    for (int i = 0; i<7; i++) {
+        YGSelectDateModel *model = [self getSelectDateModelOffsetIndex:i];
+        model.selected = i==0?YES:NO;
+        [dateWeeks addObject:model];
+    }
+    [self.weekList addObjectsFromArray:dateWeeks];
+    [self.selectDateView setData:dateWeeks];
 }
 
 - (void)didReceiveMemoryWarning {

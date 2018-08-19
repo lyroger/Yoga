@@ -95,7 +95,7 @@
         [self.btnOrder mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.contentView.mas_centerY);
             make.size.mas_equalTo(CGSizeMake(45, 25));
-            make.right.mas_equalTo(-70);
+            make.right.mas_equalTo(-15);
         }];
         
         [self.btnCancel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -115,6 +115,16 @@
     self.labelTime.text = model.time;
     self.labelTeacher.text = [NSString stringWithFormat:@"%@ %zd人",model.teacher,model.count];
     [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@""]];
+    
+    if (model.orderFlag==1) {
+        //已约 显示取消按钮
+        self.btnOrder.hidden = NO;
+        self.btnCancel.hidden = YES;
+    } else {
+        //还未预约 显示预约按钮
+        self.btnOrder.hidden = YES;
+        self.btnCancel.hidden = NO;
+    }
 }
 
 - (void)clickOrder

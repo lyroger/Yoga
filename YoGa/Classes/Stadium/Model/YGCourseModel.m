@@ -9,5 +9,55 @@
 #import "YGCourseModel.h"
 
 @implementation YGCourseModel
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"name":@"courseName",
+             @"imageURL":@"merchantPictureURL",
+             @"classId":@"id",
+             @"tercher":@"tercherName",
+             };
+}
 
++ (void)getCoursesInfoById:(NSString*)stadiumId
+                      date:(NSString*)date
+                    target:(id)target
+                   success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(stadiumId, @"merchantId");
+    DicValueSet(date, @"queryDate");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"/app/merCourse/selectByDate"
+                  params:ParamsDic
+              networkHUD:NetworkHUDLockScreen
+                  target:target success:success];
+}
+
++ (void)orderCoursesById:(NSString*)classId
+                  userId:(NSString*)userId
+                  target:(id)target
+                 success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(userId, @"username");
+    DicValueSet(classId, @"merCourId");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"/app/userCourse/addOne"
+                  params:ParamsDic
+              networkHUD:NetworkHUDLockScreen
+                  target:target success:success];
+}
+
++ (void)cancelCoursesById:(NSString*)classId
+                   target:(id)target
+                  success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(classId, @"id");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"/app/userCourse/deleteById"
+                  params:ParamsDic
+              networkHUD:NetworkHUDLockScreen
+                  target:target success:success];
+}
 @end

@@ -50,7 +50,7 @@
     [self.view addSubview:self.labelName];
     
     self.labelPhone = [UILabel new];
-    self.labelPhone.text = @"186....9999";
+    self.labelPhone.text = [YGUserInfo shareUserInfo].userName;
     self.labelPhone.textAlignment = NSTextAlignmentCenter;
     self.labelPhone.textColor = UIColorHex(0x808080);
     self.labelPhone.font = [UIFont systemFontOfSize:12];

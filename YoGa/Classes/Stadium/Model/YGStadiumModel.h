@@ -8,12 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YGStadiumModel : NSObject
+@interface YGStadiumModel : BaseModel
 
 @property (nonatomic,copy) NSString *name;
+@property (nonatomic,copy) NSString *phoneNo;
 @property (nonatomic,copy) NSString *address;
+@property (nonatomic,assign) double longitude;
+@property (nonatomic,assign) double latitude;
 @property (nonatomic,copy) NSString *distance;
 @property (nonatomic,copy) NSString *imageURL;
 @property (nonatomic,assign) NSInteger stadiumId;
+@property (nonatomic,copy) NSString *businessHours;
 
++ (void)getStadiumListsByName:(NSString*)searchName
+                     pageSize:(NSInteger)pageSize
+                    pageIndex:(NSInteger)pageIndex
+                       target:(id)target
+                      success:(NetResponseBlock)success;
+
++ (void)getStadiumInfoById:(NSInteger)stadiumId
+                    target:(id)target
+                   success:(NetResponseBlock)success;
 @end

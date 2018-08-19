@@ -31,7 +31,7 @@
 		A71877492121C3C00097951E /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877472121C3C00097951E /* NSString+Hash.m */; };
 		A718774C2121C45E0097951E /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A718774B2121C45E0097951E /* DataManager.m */; };
 		A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A718774E2121C48E0097951E /* NSDate+Extension.m */; };
-		A71877522121CBA90097951E /* YGMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877512121CBA90097951E /* YGMessageModel.m */; };
+		A71877522121CBA90097951E /* YGLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877512121CBA90097951E /* YGLoginModel.m */; };
 		A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */ = {isa = PBXBuildFile; fileRef = A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */; };
 		A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE162111F04E00E6A48A /* AppDelegate.m */; };
 		A78BCE1F2111F04E00E6A48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78BCE1E2111F04E00E6A48A /* Assets.xcassets */; };
@@ -41,6 +41,17 @@
 		A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE3F2111F80200E6A48A /* YGBaseViewController.m */; };
 		A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE432111F96500E6A48A /* YGStadiumViewController.m */; };
 		A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79195E621133D6D0080757B /* YGLoginViewController.m */; };
+		A7CB46FA21290C1300AFD218 /* HUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB46F821290C1300AFD218 /* HUDManager.m */; };
+		A7CB46FD21290C4700AFD218 /* BaseModel+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB46FB21290C4600AFD218 /* BaseModel+HUD.m */; };
+		A7CB470021290CC700AFD218 /* NSString+MyString.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB46FF21290CC700AFD218 /* NSString+MyString.m */; };
+		A7CB4703212914F100AFD218 /* YGUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB4702212914F100AFD218 /* YGUserInfo.m */; };
+		A7CB4707212919C000AFD218 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB4706212919C000AFD218 /* UIAlertView+Block.m */; };
+		A7CB47112129242E00AFD218 /* MJDIYFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB47092129242D00AFD218 /* MJDIYFooter.m */; };
+		A7CB47122129242E00AFD218 /* MyActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB470A2129242D00AFD218 /* MyActivityIndicatorView.m */; };
+		A7CB47132129242E00AFD218 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB470C2129242E00AFD218 /* MJDIYHeader.m */; };
+		A7CB47142129242E00AFD218 /* MyRefreshHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB470F2129242E00AFD218 /* MyRefreshHUD.m */; };
+		A7CB47172129471300AFD218 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB47162129471300AFD218 /* NSString+Size.m */; };
+		A7CB471A212947EC00AFD218 /* YGStadiumSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB4719212947EC00AFD218 /* YGStadiumSearchViewController.m */; };
 		A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF6BF02118492D001D30C3 /* YGStadiumModel.m */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +106,8 @@
 		A718774B2121C45E0097951E /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A718774D2121C48D0097951E /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		A718774E2121C48E0097951E /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
-		A71877502121CBA90097951E /* YGMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGMessageModel.h; sourceTree = "<group>"; };
-		A71877512121CBA90097951E /* YGMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGMessageModel.m; sourceTree = "<group>"; };
+		A71877502121CBA90097951E /* YGLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGLoginModel.h; sourceTree = "<group>"; };
+		A71877512121CBA90097951E /* YGLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGLoginModel.m; sourceTree = "<group>"; };
 		A71F6C322118987900DDFA85 /* UIButton+ImageText_V.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageText_V.h"; sourceTree = "<group>"; };
 		A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageText_V.m"; sourceTree = "<group>"; };
 		A78BCE122111F04E00E6A48A /* YoGa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoGa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +129,28 @@
 		A78BCE47211201E200E6A48A /* Common_Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common_Define.h; sourceTree = "<group>"; };
 		A79195E521133D6D0080757B /* YGLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGLoginViewController.h; sourceTree = "<group>"; };
 		A79195E621133D6D0080757B /* YGLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGLoginViewController.m; sourceTree = "<group>"; };
+		A7CB46F821290C1300AFD218 /* HUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDManager.m; sourceTree = "<group>"; };
+		A7CB46F921290C1300AFD218 /* HUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDManager.h; sourceTree = "<group>"; };
+		A7CB46FB21290C4600AFD218 /* BaseModel+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaseModel+HUD.m"; sourceTree = "<group>"; };
+		A7CB46FC21290C4700AFD218 /* BaseModel+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BaseModel+HUD.h"; sourceTree = "<group>"; };
+		A7CB46FE21290CC700AFD218 /* NSString+MyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MyString.h"; sourceTree = "<group>"; };
+		A7CB46FF21290CC700AFD218 /* NSString+MyString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyString.m"; sourceTree = "<group>"; };
+		A7CB4701212914F100AFD218 /* YGUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGUserInfo.h; sourceTree = "<group>"; };
+		A7CB4702212914F100AFD218 /* YGUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGUserInfo.m; sourceTree = "<group>"; };
+		A7CB4705212919C000AFD218 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		A7CB4706212919C000AFD218 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		A7CB47092129242D00AFD218 /* MJDIYFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYFooter.m; sourceTree = "<group>"; };
+		A7CB470A2129242D00AFD218 /* MyActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityIndicatorView.m; sourceTree = "<group>"; };
+		A7CB470B2129242E00AFD218 /* MyActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityIndicatorView.h; sourceTree = "<group>"; };
+		A7CB470C2129242E00AFD218 /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
+		A7CB470D2129242E00AFD218 /* MyRefreshHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRefreshHUD.h; sourceTree = "<group>"; };
+		A7CB470E2129242E00AFD218 /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
+		A7CB470F2129242E00AFD218 /* MyRefreshHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRefreshHUD.m; sourceTree = "<group>"; };
+		A7CB47102129242E00AFD218 /* MJDIYFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYFooter.h; sourceTree = "<group>"; };
+		A7CB47152129471300AFD218 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		A7CB47162129471300AFD218 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		A7CB4718212947EC00AFD218 /* YGStadiumSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumSearchViewController.h; sourceTree = "<group>"; };
+		A7CB4719212947EC00AFD218 /* YGStadiumSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumSearchViewController.m; sourceTree = "<group>"; };
 		A7FF6BEF2118492D001D30C3 /* YGStadiumModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumModel.h; sourceTree = "<group>"; };
 		A7FF6BF02118492D001D30C3 /* YGStadiumModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +225,8 @@
 				A718774A2121C45E0097951E /* DataManager.h */,
 				A718774B2121C45E0097951E /* DataManager.m */,
 				A71877342121C3290097951E /* AFHTTPSessionManager_BaseModel.h */,
+				A7CB46FC21290C4700AFD218 /* BaseModel+HUD.h */,
+				A7CB46FB21290C4600AFD218 /* BaseModel+HUD.m */,
 				A71877352121C3290097951E /* BaseModel.h */,
 				A71877362121C3290097951E /* BaseModel.m */,
 				A71877372121C3290097951E /* HttpClient.h */,
@@ -211,10 +246,15 @@
 		A71F6C30211897BE00DDFA85 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				A7CB47152129471300AFD218 /* NSString+Size.h */,
+				A7CB47162129471300AFD218 /* NSString+Size.m */,
+				A7CB46FE21290CC700AFD218 /* NSString+MyString.h */,
+				A7CB46FF21290CC700AFD218 /* NSString+MyString.m */,
 				A718774D2121C48D0097951E /* NSDate+Extension.h */,
 				A718774E2121C48E0097951E /* NSDate+Extension.m */,
 				A71877482121C3C00097951E /* NSString+Hash.h */,
 				A71877472121C3C00097951E /* NSString+Hash.m */,
+				A7CB4704212919C000AFD218 /* UIAlertView */,
 				A7066D00212027A900B92231 /* UIView */,
 				A7066CFC2120271800B92231 /* UITextView */,
 				A71F6C31211897D100DDFA85 /* UIButton */,
@@ -296,8 +336,10 @@
 		A78BCE2F2111F62F00E6A48A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A71877502121CBA90097951E /* YGMessageModel.h */,
-				A71877512121CBA90097951E /* YGMessageModel.m */,
+				A71877502121CBA90097951E /* YGLoginModel.h */,
+				A71877512121CBA90097951E /* YGLoginModel.m */,
+				A7CB4701212914F100AFD218 /* YGUserInfo.h */,
+				A7CB4702212914F100AFD218 /* YGUserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +388,8 @@
 			children = (
 				A78BCE422111F96500E6A48A /* YGStadiumViewController.h */,
 				A78BCE432111F96500E6A48A /* YGStadiumViewController.m */,
+				A7CB4718212947EC00AFD218 /* YGStadiumSearchViewController.h */,
+				A7CB4719212947EC00AFD218 /* YGStadiumSearchViewController.m */,
 				A7066CDB211FC9B100B92231 /* YGStadiumDetailVC.h */,
 				A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */,
 			);
@@ -355,6 +399,7 @@
 		A78BCE352111F66F00E6A48A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A7CB46F721290BFD00AFD218 /* My */,
 				A71F6C30211897BE00DDFA85 /* Categorys */,
 				A78BCE452111FFEA00E6A48A /* Macro */,
 			);
@@ -364,6 +409,7 @@
 		A78BCE3C2111F7D700E6A48A /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				A7CB47082129242300AFD218 /* BaseView */,
 				A71877332121C3290097951E /* BaseModel */,
 				A78BCE3D2111F7E200E6A48A /* BaseController */,
 			);
@@ -397,6 +443,39 @@
 				A78BCE412111F82700E6A48A /* PrefixHeader.pch */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A7CB46F721290BFD00AFD218 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				A7CB46F921290C1300AFD218 /* HUDManager.h */,
+				A7CB46F821290C1300AFD218 /* HUDManager.m */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		A7CB4704212919C000AFD218 /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				A7CB4705212919C000AFD218 /* UIAlertView+Block.h */,
+				A7CB4706212919C000AFD218 /* UIAlertView+Block.m */,
+			);
+			path = UIAlertView;
+			sourceTree = "<group>";
+		};
+		A7CB47082129242300AFD218 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				A7CB47102129242E00AFD218 /* MJDIYFooter.h */,
+				A7CB47092129242D00AFD218 /* MJDIYFooter.m */,
+				A7CB470E2129242E00AFD218 /* MJDIYHeader.h */,
+				A7CB470C2129242E00AFD218 /* MJDIYHeader.m */,
+				A7CB470B2129242E00AFD218 /* MyActivityIndicatorView.h */,
+				A7CB470A2129242D00AFD218 /* MyActivityIndicatorView.m */,
+				A7CB470D2129242E00AFD218 /* MyRefreshHUD.h */,
+				A7CB470F2129242E00AFD218 /* MyRefreshHUD.m */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,8 +610,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7CB47172129471300AFD218 /* NSString+Size.m in Sources */,
+				A7CB47132129242E00AFD218 /* MJDIYHeader.m in Sources */,
 				A7066CF8212014B700B92231 /* YGAboutViewController.m in Sources */,
 				A7066D03212027CB00B92231 /* UIView+Frame.m in Sources */,
+				A7CB47142129242E00AFD218 /* MyRefreshHUD.m in Sources */,
 				A71877422121C3290097951E /* HttpClient.m in Sources */,
 				A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */,
 				A71877432121C3290097951E /* NetCache.m in Sources */,
@@ -540,30 +622,38 @@
 				A71877452121C3290097951E /* NSString+BaseModel.m in Sources */,
 				A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */,
 				A7066CE6211FCCFC00B92231 /* YGCourseModel.m in Sources */,
+				A7CB4703212914F100AFD218 /* YGUserInfo.m in Sources */,
 				04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */,
 				A7066CEF211FE78900B92231 /* YGSelectDateModel.m in Sources */,
 				A7066CFF2120272D00B92231 /* UITextView+PlaceHolder.m in Sources */,
 				A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */,
 				A71877492121C3C00097951E /* NSString+Hash.m in Sources */,
+				A7CB47122129242E00AFD218 /* MyActivityIndicatorView.m in Sources */,
+				A7CB470021290CC700AFD218 /* NSString+MyString.m in Sources */,
 				A78BCE252111F04E00E6A48A /* main.m in Sources */,
 				A7066CE3211FCB5800B92231 /* YGCourseCell.m in Sources */,
 				A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */,
 				A78BCE382111F73900E6A48A /* YGMainTabbarViewController.m in Sources */,
 				A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */,
-				A71877522121CBA90097951E /* YGMessageModel.m in Sources */,
+				A71877522121CBA90097951E /* YGLoginModel.m in Sources */,
 				A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */,
+				A7CB46FA21290C1300AFD218 /* HUDManager.m in Sources */,
 				A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */,
 				A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */,
 				A71877462121C3290097951E /* StatusModel.m in Sources */,
 				A718774C2121C45E0097951E /* DataManager.m in Sources */,
 				A7066CE9211FCE6200B92231 /* YGImageTextHView.m in Sources */,
+				A7CB47112129242E00AFD218 /* MJDIYFooter.m in Sources */,
 				A71877412121C3290097951E /* BaseModel.m in Sources */,
 				A7066CF52120149D00B92231 /* YGFeedBackViewController.m in Sources */,
 				A78BCE3B2111F7C200E6A48A /* YGMeViewConter.m in Sources */,
 				A7066CFB212014D700B92231 /* YGSelfInfoViewController.m in Sources */,
+				A7CB471A212947EC00AFD218 /* YGStadiumSearchViewController.m in Sources */,
 				A71877442121C3290097951E /* NSDictionary+BaseModel.m in Sources */,
+				A7CB46FD21290C4700AFD218 /* BaseModel+HUD.m in Sources */,
 				A7066CE0211FCA9200B92231 /* YGStadiumDetailHeadView.m in Sources */,
 				A7066CF22120148B00B92231 /* YGMyCourseViewController.m in Sources */,
+				A7CB4707212919C000AFD218 /* UIAlertView+Block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

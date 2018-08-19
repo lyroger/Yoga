@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YGSelectDateModel : NSObject
+@interface YGSelectDateModel : BaseModel
 
 @property (nonatomic, copy) NSString *date;
+@property (nonatomic, copy) NSString *dateValue;
 @property (nonatomic, copy) NSString *week;
 @property (nonatomic, assign) BOOL selected;
 

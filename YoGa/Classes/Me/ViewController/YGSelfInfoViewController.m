@@ -25,9 +25,9 @@
 - (void)loadSubView
 {
     self.title = @"个人信息";
-    
+    self.view.backgroundColor = UIColorHex(0xffffff);
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
-    self.tableView.backgroundColor = UIColorHex(0xfafafa);
+    self.tableView.backgroundColor = UIColorHex(0xffffff);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorColor:UIColorHex(0xeeeeee)];
@@ -39,6 +39,11 @@
                     @"性别",
                     @"电话"
                     ]];
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
 }
 
@@ -60,6 +65,7 @@
     btnLoginOut.layer.cornerRadius = 22.5;
     btnLoginOut.layer.masksToBounds = YES;
     [footerView addSubview:btnLoginOut];
+    [btnLoginOut addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
     return footerView;
 }
 
@@ -151,6 +157,17 @@
         }
     }
     return 45;
+}
+
+- (void)loginOut
+{
+    [UIAlertView alertWithCallBackBlock:^(NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            [YGUserInfo shareUserInfo].token = nil;
+            [[YGUserInfo shareUserInfo] clearUserToken];
+            [kAppDelegate authorizeOperation];
+        }
+    } title:@"温馨提示" message:@"是否要退出登录?" cancelButtonName:@"否" otherButtonTitles:@"是", nil];
 }
 
 - (void)didReceiveMemoryWarning {

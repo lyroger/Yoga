@@ -13,6 +13,7 @@
 #import "HttpClient.h"
 #import "NetCache.h"
 
+#import "BaseModel+HUD.h"
 #import "NSDictionary+BaseModel.h"
 #import "NSString+BaseModel.h"
 #import "AFHTTPSessionManager_BaseModel.h"
@@ -145,6 +146,7 @@ static dispatch_once_t userOnceToken;
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                   target:(id)target
                                cacheTime:(NSInteger)cacheTime
                                dbSuccess:(DBResultBlock)dbResult
@@ -152,6 +154,7 @@ static dispatch_once_t userOnceToken;
     return [[self class] dataTaskMethod:method
                                    path:path
                                  params:params
+                             networkHUD:networkHUD
                                  target:target
                          uploadProgress:nil
                        downloadProgress:nil
@@ -163,12 +166,14 @@ static dispatch_once_t userOnceToken;
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                   target:(id)target
                                  success:(NetResponseBlock)success {
     
     return [self dataTaskMethod:method
                            path:path
                          params:params
+                     networkHUD:networkHUD
                          target:target
                       cacheTime:0
                       dbSuccess:nil
@@ -178,11 +183,13 @@ static dispatch_once_t userOnceToken;
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                  success:(NetResponseBlock)success {
     
     return [self dataTaskMethod:(HTTPMethod)method
                            path:path
                          params:params
+                     networkHUD:networkHUD
                          target:nil
                       cacheTime:0
                       dbSuccess:nil
@@ -194,6 +201,7 @@ static dispatch_once_t userOnceToken;
 + (NSURLSessionDataTask *)dataTaskMethod:(HTTPMethod)method
                                     path:(NSString *)path
                                   params:(id)params
+                              networkHUD:(NetworkHUD)networkHUD
                                   target:(id)target
                           uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress
                         downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
@@ -223,6 +231,7 @@ static dispatch_once_t userOnceToken;
                 dataTask = [self netDataTaskMethod:method
                                               path:path
                                             params:params
+                                        networkHUD:(NetworkHUD)networkHUD
                                             target:target
                                     uploadProgress:uploadProgress
                                   downloadProgress:downloadProgress
@@ -235,6 +244,7 @@ static dispatch_once_t userOnceToken;
         dataTask = [self netDataTaskMethod:method
                                       path:path
                                     params:params
+                    networkHUD:(NetworkHUD)networkHUD
                                     target:target
                             uploadProgress:uploadProgress
                           downloadProgress:downloadProgress
@@ -248,6 +258,7 @@ static dispatch_once_t userOnceToken;
 + (NSURLSessionDataTask *)netDataTaskMethod:(HTTPMethod)method
                                        path:(NSString *)path
                                      params:(id)params
+                                 networkHUD:(NetworkHUD)networkHUD
                                      target:(id)target
                              uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress
                            downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
@@ -308,13 +319,14 @@ static dispatch_once_t userOnceToken;
                                                                                        parameter:[self removeDBUselessKey:params]
                                                                                          content:JSON];
                                                                      }
-                                                                     
+                                                                     [self handleResponse:model networkHUD:networkHUD];
                                                                      if(success) {
                                                                          success (model);
                                                                      }
                                                                  }failure:^(NSURLSessionDataTask *task, NSError *error)
                                       {
                                           StatusModel *model = [[StatusModel alloc] initWithError:error];
+                                          [self handleResponse:model networkHUD:networkHUD];
                                           if(success) {
                                               success(model);
                                           }
@@ -440,6 +452,10 @@ static dispatch_once_t userOnceToken;
 }
 
 + (NSDictionary *)parametersHandler:(NSDictionary *)params path:(NSString *)path {
+    NSString *token = [YGUserInfo shareUserInfo].token;
+    if (token.nonNull) {
+        [kHttpClient.requestSerializer setValue:token forHTTPHeaderField:@"X-Token"];
+    }
     //添加版本号
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
     NSString *currentVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];

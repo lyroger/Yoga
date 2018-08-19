@@ -20,12 +20,44 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-//    self.tabBarVC = [[YGMainTabbarViewController alloc] init];
-//    self.window.rootViewController = self.tabBarVC;
-    YGLoginViewController *vc = [[YGLoginViewController alloc] init];
-    self.window.rootViewController = vc;
+    [self setNavigationBar];
+    [self authorizeOperation];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)authorizeOperation {
+    NSString *token = [[YGUserInfo shareUserInfo] getUserToken];
+    if (token) {
+        [YGUserInfo shareUserInfo].token = token;
+        self.tabBarVC = [[YGMainTabbarViewController alloc] init];
+        self.window.rootViewController = self.tabBarVC;
+    } else {
+        YGLoginViewController *vc = [[YGLoginViewController alloc] init];
+        vc.loginCompleteBlock = ^(BOOL successful) {
+            if (successful) {
+                self.tabBarVC = [[YGMainTabbarViewController alloc] init];
+                self.window.rootViewController = self.tabBarVC;
+            }
+        };
+        self.window.rootViewController = vc;
+    }
+}
+
+- (void)setNavigationBar
+{
+    UIImage *bgImage = [UIImage imageNamed:@"nav_bg_image"];
+    bgImage = [bgImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 2,1) resizingMode:UIImageResizingModeStretch];
+    [[UINavigationBar appearance] setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+    
+//    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setBarTintColor:UIColorHex(0xffffff)];
+    [[UINavigationBar appearance] setTintColor:UIColorHex(0xffffff)];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorHex(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+    [[UIBarButtonItem appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont systemFontOfSize:17]} forState:UIControlStateNormal];
 }
 
 

@@ -10,5 +10,5 @@
 #import "YGStadiumModel.h"
 
 @interface YGStadiumDetailVC : YGBaseViewController
-@property (nonatomic,strong) YGStadiumModel *model;
+@property (nonatomic,strong) YGStadiumModel *stadiumInfo;
 @end

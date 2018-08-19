@@ -7,10 +7,12 @@
 //
 
 #import "YGLoginViewController.h"
-#import "YGMessageModel.h"
+#import "YGLoginModel.h"
 
 @interface YGLoginViewController ()
 
+@property (nonatomic,strong) UITextField *userText;
+@property (nonatomic,strong) UITextField *codeText;
 @end
 
 @implementation YGLoginViewController
@@ -38,10 +40,10 @@
     userIcon.image = [UIImage imageNamed:@"login_ic_01"];
     [userNameContent addSubview:userIcon];
     
-    UITextField *userText = [UITextField new];
-    userText.placeholder = @"请输入手机号";
-    userText.font = [UIFont systemFontOfSize:15];
-    [userNameContent addSubview:userText];
+    self.userText = [UITextField new];
+    self.userText.placeholder = @"请输入手机号";
+    self.userText.font = [UIFont systemFontOfSize:15];
+    [userNameContent addSubview:self.userText];
     
     UIButton *msgCodeButton = [UIButton new];
     [msgCodeButton setTitleColor:UIColorRGB(11, 12, 13) forState:UIControlStateNormal];
@@ -54,10 +56,10 @@
     codeIcon.image = [UIImage imageNamed:@"login_ic_02"];
     [codeContent addSubview:codeIcon];
     
-    UITextField *codeText = [UITextField new];
-    codeText.placeholder = @"请输入短信验证码";
-    codeText.font = [UIFont systemFontOfSize:15];
-    [codeContent addSubview:codeText];
+    self.codeText = [UITextField new];
+    self.codeText.placeholder = @"请输入短信验证码";
+    self.codeText.font = [UIFont systemFontOfSize:15];
+    [codeContent addSubview:self.codeText];
     
     UIButton *btnLogin = [UIButton new];
     [btnLogin setTitle:@"登录" forState:UIControlStateNormal];
@@ -65,6 +67,7 @@
     btnLogin.layer.masksToBounds = YES;
     btnLogin.layer.cornerRadius = 23;
     [btnLogin setTitleColor:UIColorHex(0xffffff) forState:UIControlStateNormal];
+    [btnLogin addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnLogin];
     
     UIView *line1 = [UIView new];
@@ -77,14 +80,14 @@
     
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(1);
-        make.left.mas_equalTo(userText);
+        make.left.mas_equalTo(self.userText);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
     
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(1);
-        make.left.mas_equalTo(codeText);
+        make.left.mas_equalTo(self.codeText);
         make.right.mas_equalTo(0);
         make.bottom.mas_equalTo(0);
     }];
@@ -108,7 +111,7 @@
         make.size.mas_equalTo(CGSizeMake(25, 25));
     }];
     
-    [userText mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.userText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(userIcon.mas_right).mas_offset(10);
         make.right.mas_equalTo(msgCodeButton.mas_left).mas_offset(-10);
         make.centerY.mas_equalTo(userNameContent);
@@ -134,7 +137,7 @@
         make.size.mas_equalTo(CGSizeMake(25, 25));
     }];
     
-    [codeText mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.codeText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(codeIcon.mas_right).mas_offset(10);
         make.right.mas_equalTo(-10);
         make.centerY.mas_equalTo(codeContent);
@@ -150,14 +153,45 @@
 }
 
 - (void)sendCode{
-    [YGMessageModel getCodeMessageWithPhone:@"18673153419" success:^(StatusModel *data) {
-        NSLog(@"data = %@",data);
-        if (data.code==0) {
-            
-        } else {
-            
+    NSString *phone = self.userText.text;
+    if (phone.length==11) {
+        [YGLoginModel getCodeMessageWithPhone:phone target:self success:^(StatusModel *data) {
+            NSLog(@"data = %@",data);
+            if (data.code==0) {
+                NSLog(@"发送验证码成功");
+            } else {
+                NSLog(@"发送验证码失败");
+            }
+        }];
+    } else {
+        [HUDManager alertWithTitle:@"请输入正确的手机号码"];
+    }
+}
+
+- (void)loginAction{
+    NSString *phone = self.userText.text;
+    NSString *code = self.codeText.text;
+    if (phone.length != 11) {
+        [HUDManager alertWithTitle:@"请输入正确的手机号码"];
+        return;
+    }
+    if (code.length == 0) {
+        [HUDManager alertWithTitle:@"请输入短信验证码"];
+        return;
+    }
+    
+    [YGLoginModel loginRequestWithPhone:phone code:code target:self success:^(StatusModel *data) {
+        if (data.code == 0) {
+            [YGUserInfo shareUserInfo].token = [data.originalData objectForKey:@"token"];
+            [YGUserInfo shareUserInfo].userId = phone;
+            [YGUserInfo shareUserInfo].userName = phone;
+            [[YGUserInfo shareUserInfo] saveUserToken:[data.originalData objectForKey:@"token"]];
+            if (self.loginCompleteBlock) {
+                self.loginCompleteBlock(YES);
+            }
         }
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
