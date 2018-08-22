@@ -17,15 +17,25 @@
 @property (nonatomic,assign) NSInteger gender;          //性别
 
 + (instancetype)shareUserInfo;
-// 保存用户登录token
-- (BOOL)saveUserToken:(NSString*)token;
-// 获取用户登录token；
-- (NSString*)getUserToken;
-// 清空用户登录token信息
-- (void)clearUserToken;
++ (LKDBHelper *)getUsingLKDBHelper;
+- (void)setUserInfo:(YGUserInfo*)userInfo;
+- (void)getUserInfoFromLocal;
+- (BOOL)updateUserInfoToDB;
++ (void)getCodeMessageWithPhone:(NSString*)phone
+                         target:(id)target
+                        success:(NetResponseBlock)success;
+
++ (void)loginRequestWithPhone:(NSString*)phone
+                         code:(NSString*)code
+                       target:(id)target
+                      success:(NetResponseBlock)success;
+
++ (void)logOutRequestTarget:(id)target
+                    success:(NetResponseBlock)success;
 
 + (void)updateUserInfoUserName:(NSString*)name
                         gender:(NSInteger)gender
+                     headImage:(UIImage*)headPhoto
                         target:(id)target
                        success:(NetResponseBlock)success;
 

@@ -70,10 +70,10 @@ static dispatch_once_t userOnceToken;
 + (LKDBHelper *)getDefaultLKDBHelper {
 	static LKDBHelper* helper;
 	static dispatch_once_t onceToken;
-	NSString *dbName = @"SHMDefault";
+	NSString *dbName = @"YGDB";
 	dispatch_once(&onceToken, ^{
         helper = [[LKDBHelper alloc]initWithDBName:dbName];
-        [helper setKey:[[dbName stringByAppendingString:@"qkjskl"] md5String]];
+        [helper setKey:[[dbName stringByAppendingString:@"2018yj714815"] md5String]];
 	});
 	[helper setDBName:[NSString stringWithFormat:@"%@.db",dbName]];
 	return helper;
@@ -344,9 +344,11 @@ static dispatch_once_t userOnceToken;
 + (NSURLSessionDataTask *)updataFile:(NSString *)path
                                files:(NSArray *)files
                               params:(id)params
+                          networkHUD:(NetworkHUD)networkHUD
                               target:(id)target
                              success:(NetResponseBlock)success{
     
+    [self startHUD:networkHUD target:target];
     path = [NSString stringWithFormat:@"%@%@",kServerCurrentPath,path];
     params = [self parametersHandler:params path:path];
     
@@ -387,6 +389,7 @@ static dispatch_once_t userOnceToken;
             model = [[StatusModel alloc] initWithCode:-100 msg:NSLocalizedString (@"json_error", nil)];
         }
         [self checkResponseCode:model];
+        [self handleResponse:model networkHUD:networkHUD];
         if(success) {
             success (model);
         }
@@ -394,6 +397,7 @@ static dispatch_once_t userOnceToken;
                                                                              failure:^(NSURLSessionDataTask *task, NSError *error)
     {
         StatusModel *model = [[StatusModel alloc] initWithError:error];
+        [self handleResponse:model networkHUD:networkHUD];
         if(success) {
             success(model);
         }
@@ -462,7 +466,7 @@ static dispatch_once_t userOnceToken;
     [kHttpClient.requestSerializer setValue:currentVersion forHTTPHeaderField:@"X-version"];
     
     //添加设备类型
-    [kHttpClient.requestSerializer setValue:@"ios" forHTTPHeaderField:@"X-appOS"];
+    [kHttpClient.requestSerializer setValue:@"1" forHTTPHeaderField:@"X-appOS"];
     
 	return [self encryptForSomeFields:params];
 }

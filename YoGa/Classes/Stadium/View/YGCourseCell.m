@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UIButton    *btnCancel;
 @property (nonatomic,strong) UILabel *labelTime;
 @property (nonatomic,strong) UILabel *labelTeacher;
+@property (nonatomic,strong) UIImageView *imageSignTag;
 @property (nonatomic,strong) UIImageView *imageHead;
 @property (nonatomic,strong) YGCourseModel *courseModel;
 @end
@@ -57,6 +58,11 @@
         self.labelName.font = [UIFont systemFontOfSize:15];
         self.labelName.textColor = UIColorHex(0x333333);
         [self.contentView addSubview:self.labelName];
+
+        self.imageSignTag = [UIImageView new];
+        self.imageSignTag.layer.cornerRadius = 10;
+        self.imageSignTag.image = [UIImage imageNamed:@"list_ic_qian"];
+        [self.contentView addSubview:self.imageSignTag];
         
         self.labelTime = [UILabel new];
         self.labelTime.font = [UIFont systemFontOfSize:12];
@@ -77,7 +83,13 @@
         [self.labelName mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.imageHead.mas_right).mas_offset(8);
             make.top.mas_equalTo(15);
-            make.right.mas_equalTo(-15);
+            make.right.mas_equalTo(self.imageSignTag.mas_left).mas_offset(-8);
+        }];
+
+        [self.imageSignTag mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(self.labelName.mas_centerY);
+            make.left.mas_equalTo(self.labelName.mas_right).mas_offset(8);
+            make.size.mas_equalTo(CGSizeMake(20, 20));
         }];
         
         [self.labelTime mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,22 +120,38 @@
     return self;
 }
 
-- (void)model:(YGCourseModel*)model
+- (void)model:(YGCourseModel*)model isSign:(NSInteger)sign
 {
     self.courseModel = model;
     self.labelName.text = model.name;
     self.labelTime.text = model.time;
-    self.labelTeacher.text = [NSString stringWithFormat:@"%@ %zd人",model.teacher,model.count];
+    self.labelTeacher.text = [NSString stringWithFormat:@"%@ %zd人",model.tearcherName,model.count];
     [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@"list_pic"]];
-    
-    if (model.orderFlag==1) {
-        //已约 显示取消按钮
-        self.btnOrder.hidden = NO;
-        self.btnCancel.hidden = YES;
+
+
+    if (sign>0) {
+        if (sign == 1) {
+            //已约
+            self.btnOrder.hidden = YES;
+            self.btnCancel.hidden = NO;
+            [self.btnOrder setTitle:@"签到" forState:UIControlStateNormal];
+        } else if (sign == 2) {
+            //历史
+            self.btnOrder.hidden = YES;
+            self.btnCancel.hidden = YES;
+        }
+        self.imageSignTag.hidden = !model.signFlag;
     } else {
-        //还未预约 显示预约按钮
-        self.btnOrder.hidden = YES;
-        self.btnCancel.hidden = NO;
+        self.imageSignTag.hidden = YES;
+        if (model.orderFlag==1) {
+            //已约 显示取消按钮
+            self.btnOrder.hidden = YES;
+            self.btnCancel.hidden = NO;
+        } else {
+            //还未预约 显示预约按钮
+            self.btnOrder.hidden = NO;
+            self.btnCancel.hidden = YES;
+        }
     }
 }
 

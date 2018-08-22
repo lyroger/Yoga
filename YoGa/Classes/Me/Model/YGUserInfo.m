@@ -1,4 +1,4 @@
-//
+
 //  YGUserInfo.m
 //  YoGa
 //
@@ -10,6 +10,19 @@
 #import "SSKeychain.h"
 
 @implementation YGUserInfo
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{@"phone":@"phoneNo",
+             @"userName":@"username",
+             @"headImageUrl":@"headerPicture",
+             @"gender":@"grade"
+             };
+}
+
++ (LKDBHelper *)getUsingLKDBHelper {
+    return [super getDefaultLKDBHelper];
+}
+
 + (instancetype)shareUserInfo
 {
     static YGUserInfo *userInfo = nil;
@@ -21,27 +34,80 @@
     return userInfo;
 }
 
-// 保存用户登录token
-- (BOOL)saveUserToken:(NSString*)token
+- (void)setUserInfo:(YGUserInfo*)userInfo
 {
-    BOOL worked = [SSKeychain setPassword:token forService:@"com.qinyoga.yoga" account:@"com.qinyoga.yoga.token"];
-    NSLog(@"addUserToken = %d",worked);
-    return worked;
-}
-// 获取用户登录token；
-- (NSString*)getUserToken
-{
-    return [SSKeychain passwordForService:@"com.qinyoga.yoga" account:@"com.qinyoga.yoga.token"];
+    _userId = userInfo.userId;
+    _userName = userInfo.userName;
+    _phone = userInfo.phone;
+    _token = userInfo.token;
+    _headImageUrl = userInfo.headImageUrl;
+    _gender = userInfo.gender;
 }
 
-// 清空用户登录token信息
-- (void)clearUserToken
+- (BOOL)updateUserInfoToDB
 {
-    [SSKeychain deletePasswordForService:@"com.qinyoga.yoga" account:@"com.qinyoga.yoga.token"];
+    YGUserInfo *userInfo = [YGUserInfo shareUserInfo];
+    BOOL worked = [[YGUserInfo getUsingLKDBHelper] updateToDB:userInfo where:[NSString stringWithFormat:@"phone=%@",[YGUserInfo shareUserInfo].phone]];
+    if (worked) {
+        NSLog(@"更新成功");
+    } else {
+        NSLog(@"更新失败");
+    }
+    return worked;
+}
+
+- (void)getUserInfoFromLocal
+{
+    NSString *userAcount = [[NSUserDefaults standardUserDefaults] objectForKey:kLastUserAcount];
+    if (userAcount.length) {
+        YGUserInfo *userInfo = [YGUserInfo searchSingleWithWhere:[NSString stringWithFormat:@"phone='%@'",userAcount] orderBy:nil];
+        [self setUserInfo:userInfo];
+    }
+}
+
++ (void)getCodeMessageWithPhone:(NSString*)phone
+                         target:(id)target
+                        success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(phone, @"phoneNo");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"/app/auth/sendSmsCode"
+                  params:ParamsDic
+              networkHUD:NetworkHUDLockScreen
+                  target:target success:success];
+}
+
++ (void)loginRequestWithPhone:(NSString*)phone
+                         code:(NSString*)code
+                       target:(id)target
+                      success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(phone, @"phoneNo");
+    DicValueSet(code, @"smsCode");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"/app/login"
+                  params:ParamsDic
+              networkHUD:NetworkHUDLockScreen
+                  target:target success:success];
+}
+
++ (void)logOutRequestTarget:(id)target
+                    success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet([YGUserInfo shareUserInfo].phone, @"username");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"app/logout"
+                  params:ParamsDic
+              networkHUD:NetworkHUDBackground
+                  target:target success:success];
 }
 
 + (void)updateUserInfoUserName:(NSString*)name
                         gender:(NSInteger)gender
+                     headImage:(UIImage*)headPhoto
                         target:(id)target
                        success:(NetResponseBlock)success
 {
@@ -52,11 +118,20 @@
     if (gender>=0) {
         DicValueSet(@(gender), @"grade");
     }
-    [self dataTaskMethod:HTTPMethodPOST
-                    path:@"/app/user/updateUserInfo"
-                  params:ParamsDic
-              networkHUD:NetworkHUDLockScreen
-                  target:target success:success];
+
+    NSMutableArray *array = nil;
+    if (headPhoto) {
+        array = [NSMutableArray array];
+        UIImage *image = headPhoto;
+        NSData *data = UIImageJPEGRepresentation(image,0.5);
+        NSDictionary *fileDic = [NSDictionary bm_dictionaryWithData:data
+                                                               name:@"headerPicture"
+                                                           fileName:[NSString stringWithFormat:@"file0.jpg"]
+                                                           mimeType:@"image/jpg"];
+        [array addObject:fileDic];
+    }
+
+    [self updataFile:@"/app/user/updateUserInfo" files:array params:ParamsDic networkHUD:NetworkHUDLockScreenAndError target:target success:success];
 }
 
 + (void)feedbackInfo:(NSString*)text

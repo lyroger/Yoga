@@ -11,12 +11,14 @@
 @interface YGCourseModel : BaseModel
 
 @property (nonatomic,assign) NSInteger courseId; //课程ID
+@property (nonatomic,assign) NSInteger userCourseId;//取消时使用。
 @property (nonatomic,assign) NSInteger classId; //排课的主键ID
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *time;
-@property (nonatomic,assign) NSInteger orderFlag;
+@property (nonatomic,assign) NSInteger orderFlag;  //0 没有预约，1已约
+@property (nonatomic,assign) NSInteger signFlag;   //0 未签到，1已签到
 @property (nonatomic,assign) NSInteger tercherId;
-@property (nonatomic,copy) NSString *teacher;
+@property (nonatomic,copy) NSString *tearcherName;
 @property (nonatomic,copy) NSString *startTime;
 @property (nonatomic,copy) NSString *endTime;
 @property (nonatomic,assign) NSInteger count;
@@ -41,4 +43,8 @@
 + (void)cancelCoursesById:(NSString*)classId
                    target:(id)target
                   success:(NetResponseBlock)success;
+
++ (void)signCoursesById:(NSString*)classId
+                 target:(id)target
+                success:(NetResponseBlock)success;
 @end

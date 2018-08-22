@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubView];
+    [self textFieldReturn];
     // Do any additional setup after loading the view.
 }
 
@@ -134,6 +135,7 @@
 
 - (void)cancelSearch
 {
+    [self.view endEditing:YES];
     if (self.navigationController.viewControllers.count == 1) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {

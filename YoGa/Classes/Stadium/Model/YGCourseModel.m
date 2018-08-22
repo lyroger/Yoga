@@ -13,8 +13,7 @@
 {
     return @{@"name":@"courseName",
              @"imageURL":@"merchantPictureURL",
-             @"classId":@"id",
-             @"tercher":@"tercherName",
+             @"classId":@"id"
              };
 }
 
@@ -70,9 +69,23 @@
                   success:(NetResponseBlock)success
 {
     CreateParamsDic;
-    DicValueSet(classId, @"id");
+    DicValueSet(classId, @"merCourId");
     [self dataTaskMethod:HTTPMethodPOST
                     path:@"/app/userCourse/deleteById"
+                  params:ParamsDic
+              networkHUD:NetworkHUDLockScreen
+                  target:target success:success];
+}
+
++ (void)signCoursesById:(NSString*)classId
+                 target:(id)target
+                success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(classId, @"merCourId");
+    DicValueSet(@(1), @"status");
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:@"/app/userCourse/updateStatus"
                   params:ParamsDic
               networkHUD:NetworkHUDLockScreen
                   target:target success:success];

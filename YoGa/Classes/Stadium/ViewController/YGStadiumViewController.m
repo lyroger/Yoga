@@ -75,14 +75,6 @@
         make.top.left.right.bottom.mas_equalTo(0);
     }];
 
-    for (NSInteger i = 0; i< 15; i++) {
-        YGStadiumModel *model = [[YGStadiumModel alloc] init];
-        model.name = @"紫英瑜伽馆";
-        model.address = @"南山区大冲商务中心";
-        model.distance = @"南山 < 500m";
-        model.imageURL = @"";
-        [self.dataList addObject:model];
-    }
     [self getLocation];
     [self.tableViewList reloadData];
 }
@@ -195,17 +187,10 @@
 {
     //设置提示提醒用户打开定位服务
     NSLog(@"定位失败");
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"允许定位提示" message:@"请在设置中打开定位" preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"打开定位" style:UIAlertActionStyleDefault handler:nil];
-//
-//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-//    [alert addAction:okAction];
-//    [alert addAction:cancelAction];
-//    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark 定位成功后则执行此代理方法
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     [locationmanager stopUpdatingHeading];
     //旧址
@@ -217,26 +202,6 @@
 //    CLGeocoder *geoCoder = [[CLGeocoder alloc]init];
     //打印当前的经度与纬度
     NSLog(@"%f,%f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude);
-    
-//    //反地理编码
-//    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-//        if (placemarks.count > 0) {
-//            CLPlacemark *placeMark = placemarks[0];
-//            currentCity = placeMark.locality;
-//            if (!currentCity) {
-//                currentCity = @"无法定位当前城市";
-//            }
-//
-//            /*看需求定义一个全局变量来接收赋值*/
-//            NSLog(@"----%@",placeMark.country);//当前国家
-//            NSLog(@"%@",currentCity);//当前的城市
-//            //            NSLog(@"%@",placeMark.subLocality);//当前的位置
-//            //            NSLog(@"%@",placeMark.thoroughfare);//当前街道
-//            //            NSLog(@"%@",placeMark.name);//具体地址
-//
-//        }
-//    }];
-    
 }
 
 - (NSString*)getDistance:(YGStadiumModel*)model
@@ -244,10 +209,27 @@
     CLLocation *orig = [[CLLocation alloc] initWithLatitude:model.latitude  longitude:model.longitude];
     CLLocation* dist = [[CLLocation alloc] initWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
 
-    CLLocationDistance kilometers = [orig distanceFromLocation:dist]/1000;
-    NSString *distance = [NSString stringWithFormat:@"%zd",kilometers];
-    NSLog(@"距离:%zd",kilometers);
-    return distance;
+    CLLocationDistance meters = [orig distanceFromLocation:dist];
+    NSString *distance = [NSString stringWithFormat:@"%.0f",meters];
+    NSString *distanceDes = [self getAboutDistance:meters];
+    NSLog(@"距离:%@,描述：%@",distance,distanceDes);
+    return distanceDes;
+}
+
+- (NSString*)getAboutDistance:(CLLocationDistance)distance
+{
+    NSString *ret = @"";
+    //转为为米
+    if (distance <= 100) {
+        ret = [NSString stringWithFormat:@"%.0fm",distance];
+    } else if (distance > 100 && distance <= 500) {
+        ret = @"< 500m";
+    } else if (distance > 500 && distance <= 1000) {
+        ret = @"< 1km";
+    } else {
+        ret = @"> 1km";
+    }
+    return ret;
 }
 
 - (void)didReceiveMemoryWarning {

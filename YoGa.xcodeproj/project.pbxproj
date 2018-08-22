@@ -14,6 +14,9 @@
 		040DC15B212D0C9200FA6699 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC15A212D0C9200FA6699 /* UIAlertView+Block.m */; };
 		040DC15E212D14F600FA6699 /* NSString+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC15D212D14F600FA6699 /* NSString+Contains.m */; };
 		040DC161212D154000FA6699 /* UtilTextLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC160212D154000FA6699 /* UtilTextLimit.m */; };
+		040DC167212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC164212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		040DC168212D300D00FA6699 /* UINavigationController+StackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */; };
+		040DC16B212D316A00FA6699 /* GPSServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC16A212D316A00FA6699 /* GPSServerManager.m */; };
 		0441E4C771207A5B2E6C39C2 /* libPods-YoGa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */; };
 		04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4DC2114793C00E646BF /* YGStadiumCell.m */; };
 		A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */; };
@@ -38,7 +41,6 @@
 		A71877492121C3C00097951E /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877472121C3C00097951E /* NSString+Hash.m */; };
 		A718774C2121C45E0097951E /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A718774B2121C45E0097951E /* DataManager.m */; };
 		A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A718774E2121C48E0097951E /* NSDate+Extension.m */; };
-		A71877522121CBA90097951E /* YGLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A71877512121CBA90097951E /* YGLoginModel.m */; };
 		A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */ = {isa = PBXBuildFile; fileRef = A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */; };
 		A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BCE162111F04E00E6A48A /* AppDelegate.m */; };
 		A78BCE1F2111F04E00E6A48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78BCE1E2111F04E00E6A48A /* Assets.xcassets */; };
@@ -76,6 +78,12 @@
 		040DC15D212D14F600FA6699 /* NSString+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Contains.m"; sourceTree = "<group>"; };
 		040DC15F212D154000FA6699 /* UtilTextLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilTextLimit.h; sourceTree = "<group>"; };
 		040DC160212D154000FA6699 /* UtilTextLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilTextLimit.m; sourceTree = "<group>"; };
+		040DC163212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		040DC164212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		040DC165212D300D00FA6699 /* UINavigationController+StackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+StackManager.h"; sourceTree = "<group>"; };
+		040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StackManager.m"; sourceTree = "<group>"; };
+		040DC169212D316A00FA6699 /* GPSServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSServerManager.h; sourceTree = "<group>"; };
+		040DC16A212D316A00FA6699 /* GPSServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSServerManager.m; sourceTree = "<group>"; };
 		04FEA4DB2114793C00E646BF /* YGStadiumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumCell.h; sourceTree = "<group>"; };
 		04FEA4DC2114793C00E646BF /* YGStadiumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumCell.m; sourceTree = "<group>"; };
 		0E623DC9143D5EB30C79F11C /* Pods-YoGa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,8 +134,6 @@
 		A718774B2121C45E0097951E /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A718774D2121C48D0097951E /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		A718774E2121C48E0097951E /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
-		A71877502121CBA90097951E /* YGLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGLoginModel.h; sourceTree = "<group>"; };
-		A71877512121CBA90097951E /* YGLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGLoginModel.m; sourceTree = "<group>"; };
 		A71F6C322118987900DDFA85 /* UIButton+ImageText_V.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageText_V.h"; sourceTree = "<group>"; };
 		A71F6C332118987900DDFA85 /* UIButton+ImageText_V.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageText_V.m"; sourceTree = "<group>"; };
 		A78BCE122111F04E00E6A48A /* YoGa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoGa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +210,17 @@
 			path = ../../../../../SellhouseManager/SellHouseManager/Utils/Categories/UIKit/UIAlertView;
 			sourceTree = "<group>";
 		};
+		040DC162212D300D00FA6699 /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				040DC163212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.h */,
+				040DC164212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.m */,
+				040DC165212D300D00FA6699 /* UINavigationController+StackManager.h */,
+				040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */,
+			);
+			path = UINavigationController;
+			sourceTree = "<group>";
+		};
 		04FEA4DA211478E700E646BF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +276,8 @@
 		A71877332121C3290097951E /* BaseModel */ = {
 			isa = PBXGroup;
 			children = (
+				040DC169212D316A00FA6699 /* GPSServerManager.h */,
+				040DC16A212D316A00FA6699 /* GPSServerManager.m */,
 				A718774A2121C45E0097951E /* DataManager.h */,
 				A718774B2121C45E0097951E /* DataManager.m */,
 				A71877342121C3290097951E /* AFHTTPSessionManager_BaseModel.h */,
@@ -293,6 +312,7 @@
 				A718774E2121C48E0097951E /* NSDate+Extension.m */,
 				A71877482121C3C00097951E /* NSString+Hash.h */,
 				A71877472121C3C00097951E /* NSString+Hash.m */,
+				040DC162212D300D00FA6699 /* UINavigationController */,
 				040DC158212D0C9200FA6699 /* UIAlertView */,
 				A7066D00212027A900B92231 /* UIView */,
 				A7066CFC2120271800B92231 /* UITextView */,
@@ -375,8 +395,6 @@
 		A78BCE2F2111F62F00E6A48A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A71877502121CBA90097951E /* YGLoginModel.h */,
-				A71877512121CBA90097951E /* YGLoginModel.m */,
 				A7CB4701212914F100AFD218 /* YGUserInfo.h */,
 				A7CB4702212914F100AFD218 /* YGUserInfo.m */,
 			);
@@ -649,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040DC167212D300D00FA6699 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				A7CB47172129471300AFD218 /* NSString+Size.m in Sources */,
 				A7CB47132129242E00AFD218 /* MJDIYHeader.m in Sources */,
 				A7066CF8212014B700B92231 /* YGAboutViewController.m in Sources */,
@@ -658,6 +677,8 @@
 				A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */,
 				040DC15B212D0C9200FA6699 /* UIAlertView+Block.m in Sources */,
 				A71877432121C3290097951E /* NetCache.m in Sources */,
+				040DC16B212D316A00FA6699 /* GPSServerManager.m in Sources */,
+				040DC168212D300D00FA6699 /* UINavigationController+StackManager.m in Sources */,
 				A7066CEC211FE50100B92231 /* YGSelectedDateView.m in Sources */,
 				A71877452121C3290097951E /* NSString+BaseModel.m in Sources */,
 				040DC14D212D017F00FA6699 /* YGEditUserInfoVC.m in Sources */,
@@ -680,7 +701,6 @@
 				040DC157212D0B5C00FA6699 /* YGImagePickerController.m in Sources */,
 				A78BCE382111F73900E6A48A /* YGMainTabbarViewController.m in Sources */,
 				A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */,
-				A71877522121CBA90097951E /* YGLoginModel.m in Sources */,
 				A7FF6BF12118492D001D30C3 /* YGStadiumModel.m in Sources */,
 				A7CB46FA21290C1300AFD218 /* HUDManager.m in Sources */,
 				A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */,
@@ -836,6 +856,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AYB7599EHE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -845,8 +866,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qinyoga.yoga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3a4a964-f30f-4a66-9c63-79ac0960cd13";
-				PROVISIONING_PROFILE_SPECIFIER = JiCe_Development;
+				PROVISIONING_PROFILE = "6a699d37-ff5c-4fb0-a3cd-4ffdf44be446";
+				PROVISIONING_PROFILE_SPECIFIER = yoga_pro_profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -16,5 +16,5 @@ typedef void(^CancelCourseBlock)(YGCourseModel* model);
 
 @property (nonatomic,copy) OrderCourseBlock orderCourse;
 @property (nonatomic,copy) CancelCourseBlock cancelCourse;
-- (void)model:(YGCourseModel*)model;
+- (void)model:(YGCourseModel*)model isSign:(NSInteger)sign;
 @end

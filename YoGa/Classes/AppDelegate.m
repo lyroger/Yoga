@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.m
 //  YoGa
@@ -29,9 +30,8 @@
 }
 
 - (void)authorizeOperation {
-    NSString *token = [[YGUserInfo shareUserInfo] getUserToken];
-    if (token) {
-        [YGUserInfo shareUserInfo].token = token;
+    [[YGUserInfo shareUserInfo] getUserInfoFromLocal];
+    if ([YGUserInfo shareUserInfo].token) {
         self.tabBarVC = [[YGMainTabbarViewController alloc] init];
         self.window.rootViewController = self.tabBarVC;
     } else {

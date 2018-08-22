@@ -48,13 +48,21 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"buttonIndex = %zd",buttonIndex);
     if (buttonIndex == 0 || buttonIndex==1) {
-        [YGUserInfo updateUserInfoUserName:nil gender:buttonIndex target:self success:^(StatusModel *data) {
+        [YGUserInfo updateUserInfoUserName:nil gender:buttonIndex headImage:nil target:self success:^(StatusModel *data) {
             if (data.code == 0) {
                 [YGUserInfo shareUserInfo].gender = buttonIndex;
+                [[YGUserInfo shareUserInfo] updateUserInfoToDB];
+                [self.tableView reloadData];
             }
         }];
     }
@@ -182,7 +190,7 @@
             UIImageView *imageView = [cell.contentView viewWithTag:100];
             imageView.hidden = YES;
             NSString *name = [YGUserInfo shareUserInfo].userName?[YGUserInfo shareUserInfo].userName:@"";
-            NSString *gender = [YGUserInfo shareUserInfo].gender==1?@"男":@"女";
+            NSString *gender = [YGUserInfo shareUserInfo].gender==0?@"男":@"女";
             NSString *phone = [YGUserInfo shareUserInfo].phone?[YGUserInfo shareUserInfo].phone:@"";
             NSArray *dataValues = @[name,gender,phone];
             cell.detailTextLabel.text = dataValues[indexPath.row-1];
@@ -222,9 +230,18 @@
 {
     [UIAlertView alertWithCallBackBlock:^(NSInteger buttonIndex) {
         if (buttonIndex == 1) {
+            [YGUserInfo logOutRequestTarget:self success:^(StatusModel *data) {
+                
+            }];
+
             [YGUserInfo shareUserInfo].token = nil;
-            [[YGUserInfo shareUserInfo] clearUserToken];
-            [kAppDelegate authorizeOperation];
+            [[YGUserInfo shareUserInfo] updateUserInfoToDB];
+            [HUDManager showHUDWithMessage:@"退出中..."];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [HUDManager hiddenHUD];
+                NSLog(@"重新鉴权登录页");
+                [kAppDelegate authorizeOperation];
+            });
         }
     } title:@"温馨提示" message:@"是否要退出登录?" cancelButtonName:@"否" otherButtonTitles:@"是", nil];
 }
@@ -311,7 +328,14 @@
         [HUDManager alertWithTitle:@"上传的头像为空!"];
         return;
     }
-
+    @weakify(self);
+    [YGUserInfo updateUserInfoUserName:nil gender:-1 headImage:photo target:self success:^(StatusModel *data) {
+        @strongify(self);
+        if (data.code == 0) {
+//            [YGUserInfo shareUserInfo].headImageUrl = 
+            [[YGUserInfo shareUserInfo] updateUserInfoToDB];
+        }
+    }];
 //    @weakify(self);
 //    [SHMUserInfo uploadHeadPhoto:photo hud:NetworkHUDLockScreenAndError target:self success:^(StatusModel *data) {
 //        @strongify(self);

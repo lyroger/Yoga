@@ -26,6 +26,7 @@
 #import "NSString+MyString.h"
 #import "NSString+Contains.h"
 #import "UIAlertView+Block.h"
+#import "NSDictionary+BaseModel.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+Frame.h"
 #import "UtilTextLimit.h"

@@ -32,6 +32,14 @@
     [self loadSubView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.labelName.text = [YGUserInfo shareUserInfo].userName;
+    self.labelPhone.text = [YGUserInfo shareUserInfo].phone;
+    [self.imageHead sd_setImageWithURL:[NSURL URLWithString:[YGUserInfo shareUserInfo].headImageUrl] placeholderImage:[UIImage imageNamed:@"personal_ic_pic"]];
+}
+
 - (void)loadSubView
 {
     self.imageHead = [UIImageView new];
@@ -51,7 +59,7 @@
     [self.view addSubview:self.labelName];
     
     self.labelPhone = [UILabel new];
-    self.labelPhone.text = [YGUserInfo shareUserInfo].userId;
+    self.labelPhone.text = [YGUserInfo shareUserInfo].phone;
     self.labelPhone.textAlignment = NSTextAlignmentCenter;
     self.labelPhone.textColor = UIColorHex(0x808080);
     self.labelPhone.font = [UIFont systemFontOfSize:12];

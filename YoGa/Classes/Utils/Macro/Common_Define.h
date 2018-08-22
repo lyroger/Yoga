@@ -134,5 +134,5 @@
 #define kNotificationCenter [NSNotificationCenter defaultCenter]
 
 
-
+#define kLastUserAcount @"YGUserNameKey"
 #endif

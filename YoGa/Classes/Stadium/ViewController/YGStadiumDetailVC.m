@@ -151,11 +151,11 @@
 {
     YGCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YGCourseCell"];
     YGCourseModel *model = [self.courseList objectAtIndex:indexPath.row];
-    [cell model:model];
+    [cell model:model isSign:0];
     @weakify(self)
     cell.orderCourse = ^(YGCourseModel *model) {
         @strongify(self)
-        NSLog(@"order %zd",model.courseId);
+        NSLog(@"order %zd",model.classId);
         [YGCourseModel orderCoursesById:[NSString stringWithFormat:@"%zd",model.classId]
                                  userId:[YGUserInfo shareUserInfo].userId
                                  target:self success:^(StatusModel *data) {
@@ -168,7 +168,7 @@
     };
     cell.cancelCourse = ^(YGCourseModel *model) {
         @strongify(self)
-        NSLog(@"cancel %zd",model.courseId);
+        NSLog(@"cancel %zd",model.classId);
         [YGCourseModel cancelCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
             if (data.code == 0) {
                 model.orderFlag = 0;

@@ -59,9 +59,10 @@
 {
     NSLog(@"save button click");
     [self.view endEditing:YES];
-    [YGUserInfo updateUserInfoUserName:self.editView.text gender:-1 target:self success:^(StatusModel *data) {
+    [YGUserInfo updateUserInfoUserName:self.editView.text gender:-1 headImage:nil target:self success:^(StatusModel *data) {
         if (data.code == 0) {
             [YGUserInfo shareUserInfo].userName = self.editView.text;
+            [[YGUserInfo shareUserInfo] updateUserInfoToDB];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

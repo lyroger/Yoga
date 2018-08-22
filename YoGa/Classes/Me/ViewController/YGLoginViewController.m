@@ -7,7 +7,6 @@
 //
 
 #import "YGLoginViewController.h"
-#import "YGLoginModel.h"
 
 #define TimerCount 60
 @interface YGLoginViewController ()
@@ -181,7 +180,7 @@
     NSString *phone = self.userText.text;
     if (phone.length==11) {
         [self.view endEditing:YES];
-        [YGLoginModel getCodeMessageWithPhone:phone target:self success:^(StatusModel *data) {
+        [YGUserInfo getCodeMessageWithPhone:phone target:self success:^(StatusModel *data) {
             NSLog(@"data = %@",data);
             if (data.code==0) {
                 NSLog(@"发送验证码成功");
@@ -208,13 +207,17 @@
         return;
     }
     
-    [YGLoginModel loginRequestWithPhone:phone code:code target:self success:^(StatusModel *data) {
+    [YGUserInfo loginRequestWithPhone:phone code:code target:self success:^(StatusModel *data) {
         if (data.code == 0) {
-            [YGUserInfo shareUserInfo].token = [data.originalData objectForKey:@"token"];
-            [YGUserInfo shareUserInfo].userId = phone;
-            [YGUserInfo shareUserInfo].userName = [data.originalData objectForKey:@"username"];
-            [YGUserInfo shareUserInfo].headImageUrl = [data.originalData objectForKey:@"headerPicture"];
-            [[YGUserInfo shareUserInfo] saveUserToken:[data.originalData objectForKey:@"token"]];
+            NSLog(@"登录成功：信息：%@",data.originalData);
+            YGUserInfo *userInfo = data.data;
+            [[YGUserInfo shareUserInfo] setUserInfo:userInfo];
+            [[NSUserDefaults standardUserDefaults] setValue:phone forKey:kLastUserAcount];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [[YGUserInfo getUsingLKDBHelper] insertToDB:userInfo callback:^(BOOL result) {
+
+            }];
             if (self.loginCompleteBlock) {
                 self.loginCompleteBlock(YES);
             }

@@ -145,17 +145,12 @@
     [self.tableDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
     }];
-    
-    for (int i = 0; i<10; i++) {
-        YGCourseModel *model = [YGCourseModel new];
-        model.name = @"户外瑜伽";
-        model.teacher = @"请老师";
-        model.time = @"9:00~10:00";
-        model.count = 50;
-        model.courseId = i;
-        [self.courseList addObject:model];
-    }
     [self.tableDetailView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -168,7 +163,22 @@
     return 85;
 }
 
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.01;
 }
@@ -177,12 +187,18 @@
 {
     YGCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YGCourseCell"];
     YGCourseModel *model = [self.courseList objectAtIndex:indexPath.row];
-    [cell model:model];
+    [cell model:model isSign:self.viewType+1];
+    @weakify(self)
     cell.orderCourse = ^(YGCourseModel *model) {
         NSLog(@"order %zd",model.courseId);
-    };
-    cell.cancelCourse = ^(YGCourseModel *model) {
-        NSLog(@"cancel %zd",model.courseId);
+        @strongify(self)
+        [YGCourseModel signCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
+            @strongify(self)
+            if (data.code == 0) {
+                model.signFlag = 1;
+                [self.tableDetailView reloadData];
+            }
+        }];
     };
     return cell;
 }
