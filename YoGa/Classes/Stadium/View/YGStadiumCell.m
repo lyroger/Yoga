@@ -65,7 +65,6 @@
             make.top.mas_equalTo(self.labelAddress.mas_bottom).mas_offset(5);
             make.right.mas_equalTo(-15);
         }];
-
     }
     return self;
 }
@@ -75,7 +74,7 @@
     self.labelName.text = model.name;
     self.labelAddress.text = model.address;
     self.labelDistance.text = model.distance;
-    [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@""]];
+    [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@"list_pic"]];
 }
 
 - (void)awakeFromNib {

@@ -7,11 +7,17 @@
 //
 
 #import "YGSelfInfoViewController.h"
+#import "YGEditUserInfoVC.h"
+#import "HAlertController.h"
+#import "MicAssistant.h"
+#import "TZImagePickerController.h"
+#import "YGImagePickerController.h"
 
-@interface YGSelfInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface YGSelfInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate,TZImagePickerControllerDelegate,UIActionSheetDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray     *data;
+@property (nonatomic, strong) UIImagePickerController *imagePickerVc;
 @end
 
 @implementation YGSelfInfoViewController
@@ -42,9 +48,54 @@
     
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"buttonIndex = %zd",buttonIndex);
+    if (buttonIndex == 0 || buttonIndex==1) {
+        [YGUserInfo updateUserInfoUserName:nil gender:buttonIndex target:self success:^(StatusModel *data) {
+            if (data.code == 0) {
+                [YGUserInfo shareUserInfo].gender = buttonIndex;
+            }
+        }];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        // 上传头像
+        @weakify(self);
+        HAlertController *alertController = [HAlertController alertControllerWithTitle:nil message:nil cannelButton:@"取消" otherButtons:@[@"从手机相册选取",@"拍照"] type:HAlertControllerTypeCustomValue1 complete:^(NSUInteger buttonIndex, HAlertController *actionController) {
+            @strongify(self);
+            if (buttonIndex == 2) {
+                // 拍照
+                [self takePhoto];
+            } else if (buttonIndex == 1) {
+                // 从相册选择
+                [self pushImagePickerController];
+            }
+        }];
+        NSArray *array = [alertController buttonArrayWithCustomValue1];
+        [array[0] setTitleColor:UIColorHex(0x333333) forState:UIControlStateNormal];
+        [array[1] setTitleColor:UIColorHex(0x333333) forState:UIControlStateNormal];
+        [array[2] setTitleColor:UIColorHex(0x999999) forState:UIControlStateNormal];
+        [alertController showInController:self];
+    }else if (indexPath.row == 1) {
+        YGEditUserInfoVC *vc = [[YGEditUserInfoVC alloc] init];
+        vc.titleName = @"名称";
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 2) {
+        UIActionSheet *myActionSheet = [[UIActionSheet alloc]initWithTitle:nil
+                                                                  delegate:self
+                                                         cancelButtonTitle:@"取消"
+                                                    destructiveButtonTitle:nil
+                                                         otherButtonTitles:@"男",@"女",nil];
+
+
+
+        [myActionSheet showInView:self.view];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -124,14 +175,22 @@
             imageView.hidden = NO;
             imageView.layer.cornerRadius = 20;
             imageView.layer.masksToBounds = YES;
-            [imageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"customer_details_face_man"]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[YGUserInfo shareUserInfo].headImageUrl] placeholderImage:[UIImage imageNamed:@"personal_ic_pic"]];
             
             cell.detailTextLabel.text = nil;
         } else {
             UIImageView *imageView = [cell.contentView viewWithTag:100];
             imageView.hidden = YES;
-            NSArray *dataValues = @[@"roger",@"男",@"18677778888",];
+            NSString *name = [YGUserInfo shareUserInfo].userName?[YGUserInfo shareUserInfo].userName:@"";
+            NSString *gender = [YGUserInfo shareUserInfo].gender==1?@"男":@"女";
+            NSString *phone = [YGUserInfo shareUserInfo].phone?[YGUserInfo shareUserInfo].phone:@"";
+            NSArray *dataValues = @[name,gender,phone];
             cell.detailTextLabel.text = dataValues[indexPath.row-1];
+
+            if (indexPath.row == 3) {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                cell.accessoryView = nil;
+            }
         }
         
     }
@@ -168,6 +227,103 @@
             [kAppDelegate authorizeOperation];
         }
     } title:@"温馨提示" message:@"是否要退出登录?" cancelButtonName:@"否" otherButtonTitles:@"是", nil];
+}
+
+#pragma mark - UIImagePickerController
+- (UIImagePickerController *)imagePickerVc {
+    if (_imagePickerVc == nil) {
+        _imagePickerVc = [[UIImagePickerController alloc] init];
+        _imagePickerVc.delegate = self;
+        _imagePickerVc.allowsEditing = YES;
+    }
+    return _imagePickerVc;
+}
+
+#pragma mark - TZImagePickerController
+- (void)pushImagePickerController {
+    //    if (![[MicAssistant sharedInstance] checkAccessPermissions:NoAccessPhotoType]) {
+    //        return;
+    //    }
+
+    @weakify(self);
+    [[MicAssistant sharedInstance] checkPhotoServiceOnCompletion:^(BOOL isPermision, BOOL isFirstAsked) {
+        @strongify(self);
+        if (isPermision) {
+            YGImagePickerController *imagePickerVc = [[YGImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+            imagePickerVc.isSelectOriginalPhoto = NO;
+            imagePickerVc.allowTakePicture = NO;
+            imagePickerVc.allowPickingVideo = NO;
+            imagePickerVc.allowPickingOriginalPhoto = NO;
+            imagePickerVc.sortAscendingByModificationDate = YES;
+            imagePickerVc.barItemTextColor = UIColorHex(0x333333);
+            imagePickerVc.navigationBar.barTintColor = UIColorHex(0x333333);;
+            imagePickerVc.navigationBar.tintColor = UIColorHex(0x333333);;
+            imagePickerVc.oKButtonTitleColorDisabled = [UIColor lightGrayColor];
+            imagePickerVc.oKButtonTitleColorNormal = [UIColor greenColor];
+            [self presentViewController:imagePickerVc animated:YES completion:nil];
+            [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+                if (photos.count > 0) {
+                    [self uploadPhoto:photos[0]];
+                }
+            }];
+        } else {
+            [MicAssistant guidUserToSettingsWhenNoAccessRight:NoAccessPhotoType];
+        }
+    }];
+
+}
+
+- (void)takePhoto {
+    if (![[MicAssistant sharedInstance] checkAccessPermissions:NoAccessCamaratype]) {
+        return;
+    }
+
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        self.imagePickerVc.sourceType = sourceType;
+        if(iOS8Later) {
+            self.imagePickerVc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        }
+        [self.navigationController.tabBarController presentViewController:self.imagePickerVc animated:YES completion:nil];
+    } else {
+        NSLog(@"模拟器中无法打开照相机,请在真机中使用");
+    }
+}
+
+#pragma mark- UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (image) {
+        // 上传头像
+        [self uploadPhoto:image];
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark- upload
+- (void)uploadPhoto:(UIImage *)photo
+{
+    if (!photo) {
+        [HUDManager alertWithTitle:@"上传的头像为空!"];
+        return;
+    }
+
+//    @weakify(self);
+//    [SHMUserInfo uploadHeadPhoto:photo hud:NetworkHUDLockScreenAndError target:self success:^(StatusModel *data) {
+//        @strongify(self);
+//        if (0 == data.code) {
+//            [HUDManager alertWithTitle:@"头像设置成功!"];
+//            NSArray *urls = data.originalData;
+//            if (urls.count) {
+//                [SHMUserInfo shareUserInfo].headerImg = [urls objectAtIndex:0];
+//            }
+//            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+//        }
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

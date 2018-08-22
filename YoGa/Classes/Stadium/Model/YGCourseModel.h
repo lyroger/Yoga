@@ -27,6 +27,12 @@
                     target:(id)target
                    success:(NetResponseBlock)success;
 
++ (void)getOrderCoursesType:(NSInteger)type
+                   pageSize:(NSInteger)pageSize
+                  pageIndex:(NSInteger)pageIndex
+                     target:(id)target
+                    success:(NetResponseBlock)success;
+
 + (void)orderCoursesById:(NSString*)classId
                   userId:(NSString*)userId
                   target:(id)target

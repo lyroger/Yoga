@@ -264,7 +264,7 @@ static dispatch_once_t userOnceToken;
                            downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
                                   dbSuccess:(DBResultBlock)dbResult
                                     success:(NetResponseBlock)success {
-    
+    [self startHUD:networkHUD target:target];
     NSString *methodStr;
     switch (method) {
         case HTTPMethodGET:

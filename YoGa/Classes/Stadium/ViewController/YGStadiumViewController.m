@@ -48,6 +48,7 @@
     if (!_headView) {
         _headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 160)];
         _headView.backgroundColor = UIColorHex(0xf4f4f4);
+        _headView.image = [UIImage imageNamed:@"banner"];
     }
     return _headView;
 }
@@ -94,7 +95,8 @@
 
 - (void)loadStadiumsData
 {
-    [YGStadiumModel getStadiumListsByName:nil pageSize:20 pageIndex:self.pageIndex target:self success:^(StatusModel *data) {
+    NSLog(@"loadStadiumsData");
+    [YGStadiumModel getStadiumListsByName:nil pageSize:10 pageIndex:self.pageIndex*10 target:self success:^(StatusModel *data) {
         [self.tableViewList.mj_header endRefreshing];
         [self.tableViewList.mj_footer endRefreshing];
         
@@ -134,6 +136,16 @@
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

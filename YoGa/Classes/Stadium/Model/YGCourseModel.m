@@ -33,6 +33,23 @@
                   target:target success:success];
 }
 
++ (void)getOrderCoursesType:(NSInteger)type
+                   pageSize:(NSInteger)pageSize
+                  pageIndex:(NSInteger)pageIndex
+                     target:(id)target
+                    success:(NetResponseBlock)success
+{
+    CreateParamsDic;
+    DicValueSet(@(pageSize), @"limit");
+    DicValueSet(@(pageIndex), @"offset");
+    NSString *path = type == 0?@"/app/userCourse/myCourse":@"/app/userCourse/hisCourse";
+    [self dataTaskMethod:HTTPMethodPOST
+                    path:path
+                  params:ParamsDic
+              networkHUD:NetworkHUDBackground
+                  target:target success:success];
+}
+
 + (void)orderCoursesById:(NSString*)classId
                   userId:(NSString*)userId
                   target:(id)target

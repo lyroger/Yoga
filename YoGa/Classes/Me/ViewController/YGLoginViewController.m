@@ -9,10 +9,17 @@
 #import "YGLoginViewController.h"
 #import "YGLoginModel.h"
 
+#define TimerCount 60
 @interface YGLoginViewController ()
+{
+
+}
 
 @property (nonatomic,strong) UITextField *userText;
 @property (nonatomic,strong) UITextField *codeText;
+@property (nonatomic,strong) UIButton *msgCodeButton;
+@property (nonatomic,strong) NSTimer *timer;
+@property (nonatomic,assign) NSInteger timeCount;
 @end
 
 @implementation YGLoginViewController
@@ -24,6 +31,8 @@
 }
 
 - (void)loadSubView{
+    self.timeCount = TimerCount;
+    [self textFieldReturn];
     UIImageView *logoImage = [UIImageView new];
     logoImage.layer.cornerRadius = 40;
     logoImage.layer.masksToBounds = YES;
@@ -45,18 +54,19 @@
     self.userText.font = [UIFont systemFontOfSize:15];
     [userNameContent addSubview:self.userText];
     
-    UIButton *msgCodeButton = [UIButton new];
-    [msgCodeButton setTitleColor:UIColorRGB(11, 12, 13) forState:UIControlStateNormal];
-    [msgCodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-    msgCodeButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [msgCodeButton addTarget:self action:@selector(sendCode) forControlEvents:UIControlEventTouchUpInside];
-    [userNameContent addSubview:msgCodeButton];
+    self.msgCodeButton = [UIButton new];
+    [self.msgCodeButton setTitleColor:UIColorRGB(11, 12, 13) forState:UIControlStateNormal];
+    [self.msgCodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
+    self.msgCodeButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.msgCodeButton addTarget:self action:@selector(sendCode) forControlEvents:UIControlEventTouchUpInside];
+    [userNameContent addSubview:self.msgCodeButton];
     
     UIImageView *codeIcon = [UIImageView new];
     codeIcon.image = [UIImage imageNamed:@"login_ic_02"];
     [codeContent addSubview:codeIcon];
     
     self.codeText = [UITextField new];
+    self.codeText.keyboardType = UIKeyboardTypeNumberPad;
     self.codeText.placeholder = @"请输入短信验证码";
     self.codeText.font = [UIFont systemFontOfSize:15];
     [codeContent addSubview:self.codeText];
@@ -113,12 +123,12 @@
     
     [self.userText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(userIcon.mas_right).mas_offset(10);
-        make.right.mas_equalTo(msgCodeButton.mas_left).mas_offset(-10);
+        make.right.mas_equalTo(self.msgCodeButton.mas_left).mas_offset(-10);
         make.centerY.mas_equalTo(userNameContent);
         make.height.mas_equalTo(48);
     }];
     
-    [msgCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.msgCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(userNameContent);
         make.size.mas_equalTo(CGSizeMake(80, 40));
         make.right.mas_equalTo(0);
@@ -152,13 +162,31 @@
     }];
 }
 
+- (void)timerEvent
+{
+    if (self.timeCount>1) {
+        self.timeCount--;
+        [self.msgCodeButton setTitle:[NSString stringWithFormat:@"%zds",self.timeCount] forState:UIControlStateNormal];
+    } else {
+        self.timeCount = TimerCount;
+        [self.msgCodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
+        [self.timer invalidate];
+    }
+}
+
 - (void)sendCode{
+    if (self.timeCount!=TimerCount) {
+        return;
+    }
     NSString *phone = self.userText.text;
     if (phone.length==11) {
+        [self.view endEditing:YES];
         [YGLoginModel getCodeMessageWithPhone:phone target:self success:^(StatusModel *data) {
             NSLog(@"data = %@",data);
             if (data.code==0) {
                 NSLog(@"发送验证码成功");
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerEvent) userInfo:nil repeats:YES];
+                [self.timer fire];
             } else {
                 NSLog(@"发送验证码失败");
             }
@@ -184,7 +212,8 @@
         if (data.code == 0) {
             [YGUserInfo shareUserInfo].token = [data.originalData objectForKey:@"token"];
             [YGUserInfo shareUserInfo].userId = phone;
-            [YGUserInfo shareUserInfo].userName = phone;
+            [YGUserInfo shareUserInfo].userName = [data.originalData objectForKey:@"username"];
+            [YGUserInfo shareUserInfo].headImageUrl = [data.originalData objectForKey:@"headerPicture"];
             [[YGUserInfo shareUserInfo] saveUserToken:[data.originalData objectForKey:@"token"]];
             if (self.loginCompleteBlock) {
                 self.loginCompleteBlock(YES);
@@ -192,6 +221,12 @@
         }
     }];
     
+}
+
+- (void)dealloc
+{
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)didReceiveMemoryWarning {

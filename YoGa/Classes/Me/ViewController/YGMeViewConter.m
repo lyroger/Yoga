@@ -35,22 +35,23 @@
 - (void)loadSubView
 {
     self.imageHead = [UIImageView new];
-    self.imageHead.layer.cornerRadius = 40;
+    self.imageHead.layer.cornerRadius = 45;
     self.imageHead.backgroundColor = UIColorHex(0xf4f4f4);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(detailInfo)];
     [self.imageHead addGestureRecognizer:tap];
     self.imageHead.userInteractionEnabled = YES;
+    [self.imageHead sd_setImageWithURL:[NSURL URLWithString:[YGUserInfo shareUserInfo].headImageUrl] placeholderImage:[UIImage imageNamed:@"personal_ic_pic"]];
     [self.view addSubview:self.imageHead];
     
     self.labelName = [UILabel new];
-    self.labelName.text = @"瑜伽链";
+    self.labelName.text = [YGUserInfo shareUserInfo].userName;
     self.labelName.textAlignment = NSTextAlignmentCenter;
     self.labelName.textColor = UIColorHex(0x121212);
     self.labelName.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:self.labelName];
     
     self.labelPhone = [UILabel new];
-    self.labelPhone.text = [YGUserInfo shareUserInfo].userName;
+    self.labelPhone.text = [YGUserInfo shareUserInfo].userId;
     self.labelPhone.textAlignment = NSTextAlignmentCenter;
     self.labelPhone.textColor = UIColorHex(0x808080);
     self.labelPhone.font = [UIFont systemFontOfSize:12];
@@ -87,9 +88,9 @@
     [self.view addSubview:self.btnAbout];
     
     [self.imageHead mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(15+64);
+        make.top.mas_equalTo(50);
         make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.size.mas_equalTo(CGSizeMake(90, 90));
     }];
     
     [self.labelName mas_makeConstraints:^(MASConstraintMaker *make) {

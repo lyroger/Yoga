@@ -104,6 +104,7 @@
     self.headView.phone = self.stadiumInfo.phoneNo;
     self.headView.address = [NSString stringWithFormat:@"%@ %@",self.stadiumInfo.address,self.stadiumInfo.distance];// @"宝安中心 <1km内";
     self.headView.workTime = [NSString stringWithFormat:@"营业时间 %@",self.stadiumInfo.businessHours];
+    [self.headView.headImageView sd_setImageWithURL:[NSURL URLWithString:self.stadiumInfo.imageURL] placeholderImage:[UIImage imageNamed:@"list_pic"]];
     [self getWeekDateInfo];
     self.currentDateModel = [self.weekList objectAtIndex:0];
     [self loadCoursesData];
@@ -119,6 +120,11 @@
             [self.tableDetailView reloadData];
         }
     }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

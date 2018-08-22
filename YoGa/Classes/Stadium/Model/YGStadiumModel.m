@@ -32,7 +32,7 @@
     [self dataTaskMethod:HTTPMethodPOST
                     path:@"/app/merchant/selectByPage"
                   params:ParamsDic
-              networkHUD:NetworkHUDLockScreen
+              networkHUD:NetworkHUDError
                   target:target success:success];
 }
 

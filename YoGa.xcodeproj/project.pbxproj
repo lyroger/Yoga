@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040DC14D212D017F00FA6699 /* YGEditUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC14C212D017F00FA6699 /* YGEditUserInfoVC.m */; };
+		040DC151212D09F500FA6699 /* HAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC150212D09F500FA6699 /* HAlertController.m */; };
+		040DC154212D0AA800FA6699 /* MicAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC153212D0AA800FA6699 /* MicAssistant.m */; };
+		040DC157212D0B5C00FA6699 /* YGImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC156212D0B5C00FA6699 /* YGImagePickerController.m */; };
+		040DC15B212D0C9200FA6699 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC15A212D0C9200FA6699 /* UIAlertView+Block.m */; };
+		040DC15E212D14F600FA6699 /* NSString+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC15D212D14F600FA6699 /* NSString+Contains.m */; };
+		040DC161212D154000FA6699 /* UtilTextLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC160212D154000FA6699 /* UtilTextLimit.m */; };
 		0441E4C771207A5B2E6C39C2 /* libPods-YoGa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */; };
 		04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4DC2114793C00E646BF /* YGStadiumCell.m */; };
 		A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */; };
@@ -45,7 +52,6 @@
 		A7CB46FD21290C4700AFD218 /* BaseModel+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB46FB21290C4600AFD218 /* BaseModel+HUD.m */; };
 		A7CB470021290CC700AFD218 /* NSString+MyString.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB46FF21290CC700AFD218 /* NSString+MyString.m */; };
 		A7CB4703212914F100AFD218 /* YGUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB4702212914F100AFD218 /* YGUserInfo.m */; };
-		A7CB4707212919C000AFD218 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB4706212919C000AFD218 /* UIAlertView+Block.m */; };
 		A7CB47112129242E00AFD218 /* MJDIYFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB47092129242D00AFD218 /* MJDIYFooter.m */; };
 		A7CB47122129242E00AFD218 /* MyActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB470A2129242D00AFD218 /* MyActivityIndicatorView.m */; };
 		A7CB47132129242E00AFD218 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB470C2129242E00AFD218 /* MJDIYHeader.m */; };
@@ -56,6 +62,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040DC14B212D017F00FA6699 /* YGEditUserInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGEditUserInfoVC.h; sourceTree = "<group>"; };
+		040DC14C212D017F00FA6699 /* YGEditUserInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGEditUserInfoVC.m; sourceTree = "<group>"; };
+		040DC14F212D09F500FA6699 /* HAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlertController.h; sourceTree = "<group>"; };
+		040DC150212D09F500FA6699 /* HAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAlertController.m; sourceTree = "<group>"; };
+		040DC152212D0AA800FA6699 /* MicAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicAssistant.h; sourceTree = "<group>"; };
+		040DC153212D0AA800FA6699 /* MicAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MicAssistant.m; sourceTree = "<group>"; };
+		040DC155212D0B5C00FA6699 /* YGImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGImagePickerController.h; sourceTree = "<group>"; };
+		040DC156212D0B5C00FA6699 /* YGImagePickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGImagePickerController.m; sourceTree = "<group>"; };
+		040DC159212D0C9200FA6699 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		040DC15A212D0C9200FA6699 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		040DC15C212D14F600FA6699 /* NSString+Contains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Contains.h"; sourceTree = "<group>"; };
+		040DC15D212D14F600FA6699 /* NSString+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Contains.m"; sourceTree = "<group>"; };
+		040DC15F212D154000FA6699 /* UtilTextLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilTextLimit.h; sourceTree = "<group>"; };
+		040DC160212D154000FA6699 /* UtilTextLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilTextLimit.m; sourceTree = "<group>"; };
 		04FEA4DB2114793C00E646BF /* YGStadiumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumCell.h; sourceTree = "<group>"; };
 		04FEA4DC2114793C00E646BF /* YGStadiumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumCell.m; sourceTree = "<group>"; };
 		0E623DC9143D5EB30C79F11C /* Pods-YoGa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,8 +157,6 @@
 		A7CB46FF21290CC700AFD218 /* NSString+MyString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyString.m"; sourceTree = "<group>"; };
 		A7CB4701212914F100AFD218 /* YGUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGUserInfo.h; sourceTree = "<group>"; };
 		A7CB4702212914F100AFD218 /* YGUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGUserInfo.m; sourceTree = "<group>"; };
-		A7CB4705212919C000AFD218 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
-		A7CB4706212919C000AFD218 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		A7CB47092129242D00AFD218 /* MJDIYFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYFooter.m; sourceTree = "<group>"; };
 		A7CB470A2129242D00AFD218 /* MyActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityIndicatorView.m; sourceTree = "<group>"; };
 		A7CB470B2129242E00AFD218 /* MyActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityIndicatorView.h; sourceTree = "<group>"; };
@@ -167,6 +185,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040DC14E212D09F500FA6699 /* HAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				040DC14F212D09F500FA6699 /* HAlertController.h */,
+				040DC150212D09F500FA6699 /* HAlertController.m */,
+			);
+			path = HAlertController;
+			sourceTree = "<group>";
+		};
+		040DC158212D0C9200FA6699 /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				040DC159212D0C9200FA6699 /* UIAlertView+Block.h */,
+				040DC15A212D0C9200FA6699 /* UIAlertView+Block.m */,
+			);
+			name = UIAlertView;
+			path = ../../../../../SellhouseManager/SellHouseManager/Utils/Categories/UIKit/UIAlertView;
+			sourceTree = "<group>";
+		};
 		04FEA4DA211478E700E646BF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +283,8 @@
 		A71F6C30211897BE00DDFA85 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				040DC15C212D14F600FA6699 /* NSString+Contains.h */,
+				040DC15D212D14F600FA6699 /* NSString+Contains.m */,
 				A7CB47152129471300AFD218 /* NSString+Size.h */,
 				A7CB47162129471300AFD218 /* NSString+Size.m */,
 				A7CB46FE21290CC700AFD218 /* NSString+MyString.h */,
@@ -254,7 +293,7 @@
 				A718774E2121C48E0097951E /* NSDate+Extension.m */,
 				A71877482121C3C00097951E /* NSString+Hash.h */,
 				A71877472121C3C00097951E /* NSString+Hash.m */,
-				A7CB4704212919C000AFD218 /* UIAlertView */,
+				040DC158212D0C9200FA6699 /* UIAlertView */,
 				A7066D00212027A900B92231 /* UIView */,
 				A7066CFC2120271800B92231 /* UITextView */,
 				A71F6C31211897D100DDFA85 /* UIButton */,
@@ -301,14 +340,14 @@
 		A78BCE2B2111F5AE00E6A48A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A78BCE3C2111F7D700E6A48A /* BaseClass */,
-				A78BCE352111F66F00E6A48A /* Utils */,
-				A78BCE2E2111F61A00E6A48A /* Me */,
-				A78BCE2D2111F5DE00E6A48A /* Stadium */,
 				A78BCE152111F04E00E6A48A /* AppDelegate.h */,
 				A78BCE162111F04E00E6A48A /* AppDelegate.m */,
 				A78BCE362111F73900E6A48A /* YGMainTabbarViewController.h */,
 				A78BCE372111F73900E6A48A /* YGMainTabbarViewController.m */,
+				A78BCE2D2111F5DE00E6A48A /* Stadium */,
+				A78BCE2E2111F61A00E6A48A /* Me */,
+				A78BCE352111F66F00E6A48A /* Utils */,
+				A78BCE3C2111F7D700E6A48A /* BaseClass */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -356,6 +395,8 @@
 			children = (
 				A78BCE392111F7C200E6A48A /* YGMeViewConter.h */,
 				A78BCE3A2111F7C200E6A48A /* YGMeViewConter.m */,
+				A7066CF9212014D700B92231 /* YGSelfInfoViewController.h */,
+				A7066CFA212014D700B92231 /* YGSelfInfoViewController.m */,
 				A79195E521133D6D0080757B /* YGLoginViewController.h */,
 				A79195E621133D6D0080757B /* YGLoginViewController.m */,
 				A7066CF02120148B00B92231 /* YGMyCourseViewController.h */,
@@ -364,8 +405,10 @@
 				A7066CF42120149D00B92231 /* YGFeedBackViewController.m */,
 				A7066CF6212014B700B92231 /* YGAboutViewController.h */,
 				A7066CF7212014B700B92231 /* YGAboutViewController.m */,
-				A7066CF9212014D700B92231 /* YGSelfInfoViewController.h */,
-				A7066CFA212014D700B92231 /* YGSelfInfoViewController.m */,
+				040DC14B212D017F00FA6699 /* YGEditUserInfoVC.h */,
+				040DC14C212D017F00FA6699 /* YGEditUserInfoVC.m */,
+				040DC155212D0B5C00FA6699 /* YGImagePickerController.h */,
+				040DC156212D0B5C00FA6699 /* YGImagePickerController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -399,6 +442,7 @@
 		A78BCE352111F66F00E6A48A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				040DC14E212D09F500FA6699 /* HAlertController */,
 				A7CB46F721290BFD00AFD218 /* My */,
 				A71F6C30211897BE00DDFA85 /* Categorys */,
 				A78BCE452111FFEA00E6A48A /* Macro */,
@@ -448,19 +492,14 @@
 		A7CB46F721290BFD00AFD218 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				040DC15F212D154000FA6699 /* UtilTextLimit.h */,
+				040DC160212D154000FA6699 /* UtilTextLimit.m */,
+				040DC152212D0AA800FA6699 /* MicAssistant.h */,
+				040DC153212D0AA800FA6699 /* MicAssistant.m */,
 				A7CB46F921290C1300AFD218 /* HUDManager.h */,
 				A7CB46F821290C1300AFD218 /* HUDManager.m */,
 			);
 			path = My;
-			sourceTree = "<group>";
-		};
-		A7CB4704212919C000AFD218 /* UIAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				A7CB4705212919C000AFD218 /* UIAlertView+Block.h */,
-				A7CB4706212919C000AFD218 /* UIAlertView+Block.m */,
-			);
-			path = UIAlertView;
 			sourceTree = "<group>";
 		};
 		A7CB47082129242300AFD218 /* BaseView */ = {
@@ -617,22 +656,28 @@
 				A7CB47142129242E00AFD218 /* MyRefreshHUD.m in Sources */,
 				A71877422121C3290097951E /* HttpClient.m in Sources */,
 				A71F6C342118987900DDFA85 /* UIButton+ImageText_V.m in Sources */,
+				040DC15B212D0C9200FA6699 /* UIAlertView+Block.m in Sources */,
 				A71877432121C3290097951E /* NetCache.m in Sources */,
 				A7066CEC211FE50100B92231 /* YGSelectedDateView.m in Sources */,
 				A71877452121C3290097951E /* NSString+BaseModel.m in Sources */,
+				040DC14D212D017F00FA6699 /* YGEditUserInfoVC.m in Sources */,
 				A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */,
 				A7066CE6211FCCFC00B92231 /* YGCourseModel.m in Sources */,
+				040DC161212D154000FA6699 /* UtilTextLimit.m in Sources */,
 				A7CB4703212914F100AFD218 /* YGUserInfo.m in Sources */,
 				04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */,
 				A7066CEF211FE78900B92231 /* YGSelectDateModel.m in Sources */,
 				A7066CFF2120272D00B92231 /* UITextView+PlaceHolder.m in Sources */,
 				A79195E721133D6D0080757B /* YGLoginViewController.m in Sources */,
 				A71877492121C3C00097951E /* NSString+Hash.m in Sources */,
+				040DC15E212D14F600FA6699 /* NSString+Contains.m in Sources */,
 				A7CB47122129242E00AFD218 /* MyActivityIndicatorView.m in Sources */,
 				A7CB470021290CC700AFD218 /* NSString+MyString.m in Sources */,
 				A78BCE252111F04E00E6A48A /* main.m in Sources */,
 				A7066CE3211FCB5800B92231 /* YGCourseCell.m in Sources */,
+				040DC151212D09F500FA6699 /* HAlertController.m in Sources */,
 				A78BCE402111F80200E6A48A /* YGBaseViewController.m in Sources */,
+				040DC157212D0B5C00FA6699 /* YGImagePickerController.m in Sources */,
 				A78BCE382111F73900E6A48A /* YGMainTabbarViewController.m in Sources */,
 				A78BCE172111F04E00E6A48A /* AppDelegate.m in Sources */,
 				A71877522121CBA90097951E /* YGLoginModel.m in Sources */,
@@ -641,6 +686,7 @@
 				A718774F2121C48E0097951E /* NSDate+Extension.m in Sources */,
 				A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */,
 				A71877462121C3290097951E /* StatusModel.m in Sources */,
+				040DC154212D0AA800FA6699 /* MicAssistant.m in Sources */,
 				A718774C2121C45E0097951E /* DataManager.m in Sources */,
 				A7066CE9211FCE6200B92231 /* YGImageTextHView.m in Sources */,
 				A7CB47112129242E00AFD218 /* MJDIYFooter.m in Sources */,
@@ -653,7 +699,6 @@
 				A7CB46FD21290C4700AFD218 /* BaseModel+HUD.m in Sources */,
 				A7066CE0211FCA9200B92231 /* YGStadiumDetailHeadView.m in Sources */,
 				A7066CF22120148B00B92231 /* YGMyCourseViewController.m in Sources */,
-				A7CB4707212919C000AFD218 /* UIAlertView+Block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

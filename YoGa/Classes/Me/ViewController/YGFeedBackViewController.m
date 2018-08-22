@@ -25,8 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title =@"意见反馈";
-    self.view.backgroundColor = UIColorHex(0xffffff);
+    self.title = @"意见反馈";
     //加载视图
     [self  initView];
     
@@ -36,7 +35,7 @@
 
 - (void)initView
 {
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(15, 15+64, kScreenWidth-30, 175)];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(15, 15, kScreenWidth-30, 175)];
     backgroundView.backgroundColor = UIColorHex(0xffffff);
     [self.view addSubview:backgroundView];
     
@@ -89,7 +88,11 @@
 -(void)textFiledEditChanged:(NSNotification *)obj{
     
     if ([_contentTextView isFirstResponder]) {
-        
+        [UtilTextLimit limitIncludeChineseTextView:_contentTextView Length:400];
+        if (_contentTextView.markedTextRange == nil) {
+            _tipLabel.text = [NSString stringWithFormat:@"%d/200", MIN([_contentTextView.text wordsCount],200)];
+        }
+        self.navigationItem.rightBarButtonItem.enabled = [NSString stringBySpaceTrim:_contentTextView.text].length > 0;
     }
 }
 
@@ -97,7 +100,13 @@
 - (void)submitAction
 {
     [self.view endEditing:YES];
-    
+    NSLog(@"_contentTextView.text = %@",_contentTextView.text);
+    [YGUserInfo feedbackInfo:_contentTextView.text target:self success:^(StatusModel *data) {
+        if (data.code == 0) {
+            [HUDManager alertWithTitle:@"反馈成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
 }
 
 #pragma mark - textView delegate

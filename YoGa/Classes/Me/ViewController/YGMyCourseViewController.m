@@ -9,6 +9,7 @@
 #import "YGMyCourseViewController.h"
 #import "YGCourseCell.h"
 #import "YGCourseModel.h"
+#import "YGCourseModel.h"
 
 @interface YGMyCourseViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -17,6 +18,8 @@
 @property (nonatomic,strong) NSMutableArray *courseList;
 @property (nonatomic,strong) UIButton *btnItem1;
 @property (nonatomic,strong) UIButton *btnItem2;
+@property (nonatomic,assign) NSInteger viewType;
+@property (nonatomic,assign) NSInteger pageIndex;
 @end
 
 @implementation YGMyCourseViewController
@@ -37,7 +40,7 @@
     segmentView.layer.masksToBounds = YES;
     
     self.btnItem1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnItem1.frame = CGRectMake(0, 0, 64, 30);
+    self.btnItem1.frame = CGRectMake(0, 0, 65, 30);
     self.btnItem1.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.btnItem1 setTitle:@"已约" forState:UIControlStateNormal];
     [self.btnItem1 setBackgroundColor:UIColorHex(0x121212)];
@@ -47,7 +50,7 @@
     [segmentView addSubview:self.btnItem1];
     
     self.btnItem2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.btnItem2.frame = CGRectMake(64, 0, 64, 30);
+    self.btnItem2.frame = CGRectMake(65, 0, 65, 30);
     self.btnItem2.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.btnItem2 setTitle:@"历史" forState:UIControlStateNormal];
     [self.btnItem2 setBackgroundColor:UIColorHex(0xffffff)];
@@ -67,13 +70,54 @@
         
         [self.btnItem2 setBackgroundColor:UIColorHex(0xffffff)];
         [self.btnItem2 setTitleColor:UIColorHex(0x121212) forState:UIControlStateNormal];
+
+        self.viewType = 0;
     } else {
         [self.btnItem2 setBackgroundColor:UIColorHex(0x121212)];
         [self.btnItem2 setTitleColor:UIColorHex(0xffffff) forState:UIControlStateNormal];
         
         [self.btnItem1 setBackgroundColor:UIColorHex(0xffffff)];
         [self.btnItem1 setTitleColor:UIColorHex(0x121212) forState:UIControlStateNormal];
+
+        self.viewType = 1;
     }
+
+    [self refreshData];
+}
+
+- (void)refreshData
+{
+    self.pageIndex = 0;
+    [self requestCourseData];
+}
+
+- (void)requestCourseData
+{
+    [YGCourseModel getOrderCoursesType:self.viewType pageSize:10 pageIndex:self.pageIndex target:self success:^(StatusModel *data) {
+        [self.tableDetailView.mj_header endRefreshing];
+        [self.tableDetailView.mj_footer endRefreshing];
+
+        if (data.code == 0) {
+            NSArray *stadiums = [YGCourseModel mj_objectArrayWithKeyValuesArray:[data.originalData objectForKey:@"rows"]];
+            if (self.pageIndex == 0) {
+                [self.courseList removeAllObjects];
+            }
+            [self.courseList addObjectsFromArray:stadiums];
+            BOOL hasMoreData = true;
+            if ([[data.originalData objectForKey:@"total"] integerValue] == self.courseList.count) {
+                [self.tableDetailView.mj_footer endRefreshingWithNoMoreData];
+                hasMoreData = false;
+            } else {
+                self.pageIndex ++;
+            }
+            if (self.pageIndex == 1 && hasMoreData) {
+                self.tableDetailView.mj_footer = [MJDIYFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestCourseData)];
+            }
+            [self.tableDetailView reloadData];
+        } else {
+
+        }
+    }];
 }
 
 - (NSMutableArray *)courseList
@@ -85,11 +129,18 @@
 }
 
 - (void)loadSubView{
-    self.tableDetailView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableDetailView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableDetailView.dataSource = self;
     self.tableDetailView.delegate = self;
+    self.tableDetailView.backgroundColor = self.view.backgroundColor;
     [self.tableDetailView registerClass:[YGCourseCell class] forCellReuseIdentifier:@"YGCourseCell"];
     [self.view addSubview:self.tableDetailView];
+    @weakify(self);
+    self.tableDetailView.mj_header = [MJDIYHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshData];
+    }];
+    [self refreshData];
     
     [self.tableDetailView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YGLoginViewController.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self setNavigationBar];
+    [self setTextKeyBoard];
     [self authorizeOperation];
     [self.window makeKeyAndVisible];
     return YES;
@@ -50,14 +52,20 @@
     bgImage = [bgImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 2,1) resizingMode:UIImageResizingModeStretch];
     [[UINavigationBar appearance] setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
     
-//    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
-    
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     [[UINavigationBar appearance] setBarTintColor:UIColorHex(0xffffff)];
     [[UINavigationBar appearance] setTintColor:UIColorHex(0xffffff)];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorHex(0x333333), NSFontAttributeName:[UIFont systemFontOfSize:18]}];
     [[UIBarButtonItem appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont systemFontOfSize:17]} forState:UIControlStateNormal];
+}
+
+- (void)setTextKeyBoard
+{
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager]
+     setKeyboardDistanceFromTextField:IQKeyboardDistanceFromTextField];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    [[IQKeyboardManager sharedManager] setCanAdjustTextView:YES];
 }
 
 
