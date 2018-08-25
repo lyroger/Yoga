@@ -214,10 +214,7 @@
             [[YGUserInfo shareUserInfo] setUserInfo:userInfo];
             [[NSUserDefaults standardUserDefaults] setValue:phone forKey:kLastUserAcount];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            [[YGUserInfo getUsingLKDBHelper] insertToDB:userInfo callback:^(BOOL result) {
-
-            }];
+            [userInfo updateUserInfoToDB];
             if (self.loginCompleteBlock) {
                 self.loginCompleteBlock(YES);
             }

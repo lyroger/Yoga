@@ -24,6 +24,7 @@
 {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.imageHead = [UIImageView new];
+        self.imageHead.contentMode = UIViewContentModeScaleAspectFill;
         self.imageHead.backgroundColor = UIColorHex(0xf4f4f4);
         [self.contentView addSubview:self.imageHead];
 

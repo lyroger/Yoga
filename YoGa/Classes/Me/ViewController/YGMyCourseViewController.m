@@ -189,8 +189,8 @@
     YGCourseModel *model = [self.courseList objectAtIndex:indexPath.row];
     [cell model:model isSign:self.viewType+1];
     @weakify(self)
-    cell.orderCourse = ^(YGCourseModel *model) {
-        NSLog(@"order %zd",model.courseId);
+    cell.signCourse = ^(YGCourseModel *model) {
+        NSLog(@"sign %zd",model.classId);
         @strongify(self)
         [YGCourseModel signCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
             @strongify(self)
@@ -199,6 +199,20 @@
                 [self.tableDetailView reloadData];
             }
         }];
+    };
+    cell.cancelCourse = ^(YGCourseModel *model) {
+        NSLog(@"cancel %zd",model.classId);
+        [UIAlertView alertWithCallBackBlock:^(NSInteger buttonIndex) {
+            if (buttonIndex == 1) {
+                [YGCourseModel cancelCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
+                    if (data.code == 0) {
+                        model.orderFlag = 0;
+                        [self.tableDetailView reloadData];
+                    }
+                }];
+            }
+        } title:nil message:@"确定要取消预约吗？" cancelButtonName:@"否" otherButtonTitles:@"是", nil];
+
     };
     return cell;
 }

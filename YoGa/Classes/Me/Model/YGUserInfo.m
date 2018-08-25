@@ -13,15 +13,15 @@
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
     return @{@"phone":@"phoneNo",
-             @"userName":@"username",
+             @"nickName":@"nickname",
              @"headImageUrl":@"headerPicture",
              @"gender":@"grade"
              };
 }
 
-+ (LKDBHelper *)getUsingLKDBHelper {
-    return [super getDefaultLKDBHelper];
-}
+//+ (LKDBHelper *)getUsingLKDBHelper {
+//    return [super getDefaultLKDBHelper];
+//}
 
 + (instancetype)shareUserInfo
 {
@@ -37,7 +37,7 @@
 - (void)setUserInfo:(YGUserInfo*)userInfo
 {
     _userId = userInfo.userId;
-    _userName = userInfo.userName;
+    _nickName = userInfo.nickName;
     _phone = userInfo.phone;
     _token = userInfo.token;
     _headImageUrl = userInfo.headImageUrl;
@@ -60,7 +60,7 @@
 {
     NSString *userAcount = [[NSUserDefaults standardUserDefaults] objectForKey:kLastUserAcount];
     if (userAcount.length) {
-        YGUserInfo *userInfo = [YGUserInfo searchSingleWithWhere:[NSString stringWithFormat:@"phone='%@'",userAcount] orderBy:nil];
+        YGUserInfo *userInfo = [[YGUserInfo getUsingLKDBHelper] searchSingle:[YGUserInfo class] where:[NSString stringWithFormat:@"phone='%@'",userAcount] orderBy:nil];
         [self setUserInfo:userInfo];
     }
 }
@@ -74,7 +74,7 @@
     [self dataTaskMethod:HTTPMethodPOST
                     path:@"/app/auth/sendSmsCode"
                   params:ParamsDic
-              networkHUD:NetworkHUDLockScreen
+              networkHUD:NetworkHUDLockScreenAndError
                   target:target success:success];
 }
 
@@ -89,7 +89,7 @@
     [self dataTaskMethod:HTTPMethodPOST
                     path:@"/app/login"
                   params:ParamsDic
-              networkHUD:NetworkHUDLockScreen
+              networkHUD:NetworkHUDLockScreenAndError
                   target:target success:success];
 }
 
@@ -112,7 +112,7 @@
                        success:(NetResponseBlock)success
 {
     CreateParamsDic;
-    if (name) {
+    if (name.length) {
         DicValueSet(name, @"nickname");
     }
     if (gender>=0) {

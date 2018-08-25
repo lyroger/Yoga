@@ -20,6 +20,14 @@
 
 - (void)viewDidLoad{
     [self loadTabBarView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenExpire) name:kUserTokenExpireNotification object:nil];
+}
+
+- (void)tokenExpire
+{
+    [YGUserInfo shareUserInfo].token = nil;
+    [[YGUserInfo shareUserInfo] updateUserInfoToDB];
+    [kAppDelegate authorizeOperation];
 }
 
 - (void)loadTabBarView
@@ -73,5 +81,10 @@
         //调整tabbar的title与图片之间的间距
         //        [vc.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -2.0)];
     }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

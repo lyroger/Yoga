@@ -11,10 +11,11 @@
 
 typedef void(^OrderCourseBlock)(YGCourseModel* model);
 typedef void(^CancelCourseBlock)(YGCourseModel* model);
-
+typedef void(^SignCourseBlock)(YGCourseModel* model);
 @interface YGCourseCell : UITableViewCell
 
 @property (nonatomic,copy) OrderCourseBlock orderCourse;
 @property (nonatomic,copy) CancelCourseBlock cancelCourse;
+@property (nonatomic,copy) SignCourseBlock signCourse;
 - (void)model:(YGCourseModel*)model isSign:(NSInteger)sign;
 @end

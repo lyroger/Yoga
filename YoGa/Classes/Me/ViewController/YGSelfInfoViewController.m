@@ -189,7 +189,7 @@
         } else {
             UIImageView *imageView = [cell.contentView viewWithTag:100];
             imageView.hidden = YES;
-            NSString *name = [YGUserInfo shareUserInfo].userName?[YGUserInfo shareUserInfo].userName:@"";
+            NSString *name = [YGUserInfo shareUserInfo].nickName?[YGUserInfo shareUserInfo].nickName:@"";
             NSString *gender = [YGUserInfo shareUserInfo].gender==0?@"男":@"女";
             NSString *phone = [YGUserInfo shareUserInfo].phone?[YGUserInfo shareUserInfo].phone:@"";
             NSArray *dataValues = @[name,gender,phone];
@@ -332,22 +332,11 @@
     [YGUserInfo updateUserInfoUserName:nil gender:-1 headImage:photo target:self success:^(StatusModel *data) {
         @strongify(self);
         if (data.code == 0) {
-//            [YGUserInfo shareUserInfo].headImageUrl = 
+            [YGUserInfo shareUserInfo].headImageUrl = [data.originalData objectForKey:@"headerPicture"];
             [[YGUserInfo shareUserInfo] updateUserInfoToDB];
+            [self.tableView reloadData];
         }
     }];
-//    @weakify(self);
-//    [SHMUserInfo uploadHeadPhoto:photo hud:NetworkHUDLockScreenAndError target:self success:^(StatusModel *data) {
-//        @strongify(self);
-//        if (0 == data.code) {
-//            [HUDManager alertWithTitle:@"头像设置成功!"];
-//            NSArray *urls = data.originalData;
-//            if (urls.count) {
-//                [SHMUserInfo shareUserInfo].headerImg = [urls objectAtIndex:0];
-//            }
-//            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-//        }
-//    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -41,12 +41,10 @@ static LKDBHelper* userHelper;
 static dispatch_once_t userOnceToken;
 
 + (LKDBHelper *)getUserLKDBHelper {
-	NSString *dbName = [NSString stringWithFormat:@"SHM%llu",GetDataManager.userId];
+	NSString *dbName = [NSString stringWithFormat:@"YG%llu",GetDataManager.userId];
 	dispatch_once(&userOnceToken, ^{
         userHelper = [[LKDBHelper alloc] initWithDBName:dbName];
-        [userHelper setKey:[[dbName stringByAppendingString:@"qkjskl"] md5String]];
-        
-
+        [userHelper setKey:[[dbName stringByAppendingString:@"2018yj714815"] md5String]];
 	});
 	[userHelper setDBName:dbName];
 	return userHelper;
@@ -70,7 +68,7 @@ static dispatch_once_t userOnceToken;
 + (LKDBHelper *)getDefaultLKDBHelper {
 	static LKDBHelper* helper;
 	static dispatch_once_t onceToken;
-	NSString *dbName = @"YGDB";
+	NSString *dbName = @"YGDefault";
 	dispatch_once(&onceToken, ^{
         helper = [[LKDBHelper alloc]initWithDBName:dbName];
         [helper setKey:[[dbName stringByAppendingString:@"2018yj714815"] md5String]];
@@ -451,7 +449,7 @@ static dispatch_once_t userOnceToken;
 {
     if (model.code == 401) {
         //token失效，需重新登录
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kUserTokenExpireNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserTokenExpireNotification object:nil];
     }
 }
 

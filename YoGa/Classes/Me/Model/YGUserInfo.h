@@ -10,14 +10,13 @@
 
 @interface YGUserInfo : BaseModel
 @property (nonatomic, copy) NSString *userId;           //用户ID
-@property (nonatomic, copy) NSString *userName;         //用户姓名
-@property (nonatomic, copy) NSString *phone;         //用户手机号
+@property (nonatomic, copy) NSString *nickName;         //用户昵称
+@property (nonatomic, copy) NSString *phone;            //用户手机号
 @property (nonatomic, copy) NSString *token;            //用户token
 @property (nonatomic, copy) NSString *headImageUrl;     //用户头像地址
 @property (nonatomic,assign) NSInteger gender;          //性别
 
 + (instancetype)shareUserInfo;
-+ (LKDBHelper *)getUsingLKDBHelper;
 - (void)setUserInfo:(YGUserInfo*)userInfo;
 - (void)getUserInfoFromLocal;
 - (BOOL)updateUserInfoToDB;

@@ -135,4 +135,5 @@
 
 
 #define kLastUserAcount @"YGUserNameKey"
+#define kUserTokenExpireNotification @"YGUserTokenExpireNotification"
 #endif

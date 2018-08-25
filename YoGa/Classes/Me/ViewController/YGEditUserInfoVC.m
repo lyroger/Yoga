@@ -29,7 +29,7 @@
     if (self.editType == EditInfoType_UserName) {
         UITextField *textField = [UITextField new];
         textField.placeholder = @"请输入您的名称";
-        textField.text = [YGUserInfo shareUserInfo].userName;
+        textField.text = [YGUserInfo shareUserInfo].nickName;
         textField.font = [UIFont systemFontOfSize:16];
         textField.frame = CGRectMake(0, 20, kScreenWidth, 50);
         textField.backgroundColor = UIColorHex(0xffffff);
@@ -61,7 +61,7 @@
     [self.view endEditing:YES];
     [YGUserInfo updateUserInfoUserName:self.editView.text gender:-1 headImage:nil target:self success:^(StatusModel *data) {
         if (data.code == 0) {
-            [YGUserInfo shareUserInfo].userName = self.editView.text;
+            [YGUserInfo shareUserInfo].nickName = self.editView.text;
             [[YGUserInfo shareUserInfo] updateUserInfoToDB];
             [self.navigationController popViewControllerAnimated:YES];
         }

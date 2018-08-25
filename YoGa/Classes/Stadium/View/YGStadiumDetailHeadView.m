@@ -23,8 +23,10 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.headImageView = [UIImageView new];
+        self.headImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.headImageView.backgroundColor = UIColorHex(0xf4f4f4);
         self.headImageView.layer.cornerRadius = 6;
+        self.headImageView.layer.masksToBounds = YES;
         [self addSubview:self.headImageView];
         
         self.leftContentView = [UIView new];

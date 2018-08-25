@@ -51,6 +51,8 @@
         
         self.imageHead = [UIImageView new];
         self.imageHead.layer.cornerRadius = 2;
+        self.imageHead.layer.masksToBounds = YES;
+        self.imageHead.contentMode = UIViewContentModeScaleAspectFill;
         self.imageHead.backgroundColor = UIColorHex(0xf4f4f4);
         [self.contentView addSubview:self.imageHead];
         
@@ -132,9 +134,11 @@
     if (sign>0) {
         if (sign == 1) {
             //已约
-            self.btnOrder.hidden = YES;
+            self.btnOrder.hidden = NO;
             self.btnCancel.hidden = NO;
             [self.btnOrder setTitle:@"签到" forState:UIControlStateNormal];
+            [self.btnOrder removeTarget:self action:@selector(clickOrder) forControlEvents:UIControlEventTouchUpInside];
+            [self.btnOrder addTarget:self action:@selector(clickSign) forControlEvents:UIControlEventTouchUpInside];
         } else if (sign == 2) {
             //历史
             self.btnOrder.hidden = YES;
@@ -152,6 +156,12 @@
             self.btnOrder.hidden = NO;
             self.btnCancel.hidden = YES;
         }
+    }
+}
+
+- (void)clickSign{
+    if (self.signCourse) {
+        self.signCourse(self.courseModel);
     }
 }
 

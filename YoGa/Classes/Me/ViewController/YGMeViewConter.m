@@ -35,7 +35,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.labelName.text = [YGUserInfo shareUserInfo].userName;
+//    [YGUserInfo shareUserInfo].headImageUrl = @"http://120.79.17.189:8888/image/20180822//1.jpg";
+    self.labelName.text = [YGUserInfo shareUserInfo].nickName;
     self.labelPhone.text = [YGUserInfo shareUserInfo].phone;
     [self.imageHead sd_setImageWithURL:[NSURL URLWithString:[YGUserInfo shareUserInfo].headImageUrl] placeholderImage:[UIImage imageNamed:@"personal_ic_pic"]];
 }
@@ -44,7 +45,9 @@
 {
     self.imageHead = [UIImageView new];
     self.imageHead.layer.cornerRadius = 45;
+    self.imageHead.layer.masksToBounds = YES;
     self.imageHead.backgroundColor = UIColorHex(0xf4f4f4);
+    self.imageHead.contentMode = UIViewContentModeScaleAspectFill;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(detailInfo)];
     [self.imageHead addGestureRecognizer:tap];
     self.imageHead.userInteractionEnabled = YES;
@@ -52,7 +55,7 @@
     [self.view addSubview:self.imageHead];
     
     self.labelName = [UILabel new];
-    self.labelName.text = [YGUserInfo shareUserInfo].userName;
+    self.labelName.text = [YGUserInfo shareUserInfo].nickName;
     self.labelName.textAlignment = NSTextAlignmentCenter;
     self.labelName.textColor = UIColorHex(0x121212);
     self.labelName.font = [UIFont systemFontOfSize:15];

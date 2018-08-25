@@ -26,22 +26,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
-            timestampString = "556631248.941837"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
             timestampString = "556631248.941891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -58,12 +42,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
-            timestampString = "556631248.941943"
+            timestampString = "556858947.504081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[YGStadiumDetailVC tableView:cellForRowAtIndexPath:]_block_invoke.260"
+                  moduleName = "YoGa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
+                  timestampString = "556873038.853096"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[YGStadiumDetailVC tableView:cellForRowAtIndexPath:]_block_invoke_2.264"
+                  moduleName = "YoGa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
+                  timestampString = "556873038.854733"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.271"
+                  moduleName = "YoGa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
+                  timestampString = "556873038.856463"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/NSObject+LKDBHelper.m"
+            timestampString = "556869110.453089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "-isExistsFromDB"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,7 +121,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Me/ViewController/YGSelfInfoViewController.m"
-            timestampString = "556631248.941996"
+            timestampString = "556873038.719182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "334"
@@ -89,46 +136,94 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YoGa/Classes/Me/ViewController/YGLoginViewController.m"
-            timestampString = "556631248.942064"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/LKDBHelper.m"
+            timestampString = "556872029.032936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "-loginAction"
+            startingLineNumber = "1467"
+            endingLineNumber = "1467"
+            landmarkName = "-isExistsModel:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[YGLoginViewController loginAction]_block_invoke"
-                  moduleName = "YoGa"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGLoginViewController.m"
-                  timestampString = "556631249.057706"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "218"
-                  endingLineNumber = "218"
-                  offsetFromSymbolStart = "452">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[YGLoginViewController loginAction]_block_invoke_2"
-                  moduleName = "YoGa"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGLoginViewController.m"
-                  timestampString = "556631249.05932"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "220"
-                  endingLineNumber = "220"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/LKDBHelper.m"
+            timestampString = "556872029.033005"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1485"
+            endingLineNumber = "1485"
+            landmarkName = "-isExistsClass:where:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/LKDBHelper.m"
+            timestampString = "556872029.033053"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "801"
+            endingLineNumber = "801"
+            landmarkName = "-rowCountWithTableName:where:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/LKDBHelper.m"
+            timestampString = "556872029.033096"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1490"
+            endingLineNumber = "1490"
+            landmarkName = "-isExistsWithTableName:where:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/NSObject+LKDBHelper.m"
+            timestampString = "556871327.075269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-saveToDB"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/LKDBHelper/LKDBHelper/Helper/NSObject+LKDBHelper.m"
+            timestampString = "556871334.259467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "+insertToDB:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
