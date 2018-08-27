@@ -13,14 +13,15 @@
 @property (nonatomic,assign) NSInteger courseId; //课程ID
 @property (nonatomic,assign) NSInteger userCourseId;//取消时使用。
 @property (nonatomic,assign) NSInteger classId; //排课的主键ID
+@property (nonatomic,assign) NSInteger merCourId; //排课的id，已约列表用到。
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *time;
 @property (nonatomic,assign) NSInteger orderFlag;  //0 没有预约，1已约
 @property (nonatomic,assign) NSInteger signFlag;   //0 未签到，1已签到
 @property (nonatomic,assign) NSInteger tercherId;
 @property (nonatomic,copy) NSString *tearcherName;
-@property (nonatomic,copy) NSString *startTime;
-@property (nonatomic,copy) NSString *endTime;
+@property (nonatomic,strong) NSDate *startTime;
+@property (nonatomic,strong) NSDate *endTime;
 @property (nonatomic,assign) NSInteger count;
 @property (nonatomic,copy) NSString *imageURL;
 

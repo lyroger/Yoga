@@ -122,35 +122,70 @@
     return self;
 }
 
+
 - (void)model:(YGCourseModel*)model isSign:(NSInteger)sign
 {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"HH:mm";
+    NSString *start = [formatter stringFromDate:model.startTime];
+    NSString *end = [formatter stringFromDate:model.endTime];
+
+    NSString *time = [NSString stringWithFormat:@"%@~%@",start,end];
+    if (sign > 0) {
+        //我的预约列表中展示多现实 年月日
+        NSDateFormatter *formatterYear = [NSDateFormatter new];
+        formatterYear.dateFormat = @"yyyy-MM-dd";
+        NSString *year = [formatterYear stringFromDate:model.startTime];
+        time = [NSString stringWithFormat:@"%@ %@~%@",year,start,end];
+    }
+
     self.courseModel = model;
     self.labelName.text = model.name;
-    self.labelTime.text = model.time;
+    self.labelTime.text = time;
     self.labelTeacher.text = [NSString stringWithFormat:@"%@ %zd人",model.tearcherName,model.count];
     [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@"list_pic"]];
 
 
     if (sign>0) {
+        self.imageSignTag.hidden = !model.signFlag;
         if (sign == 1) {
             //已约
-            self.btnOrder.hidden = NO;
-            self.btnCancel.hidden = NO;
-            [self.btnOrder setTitle:@"签到" forState:UIControlStateNormal];
-            [self.btnOrder removeTarget:self action:@selector(clickOrder) forControlEvents:UIControlEventTouchUpInside];
-            [self.btnOrder addTarget:self action:@selector(clickSign) forControlEvents:UIControlEventTouchUpInside];
+            if (model.signFlag == 0) {
+                self.btnOrder.hidden = NO;
+                self.btnCancel.hidden = NO;
+                [self.btnOrder setTitle:@"签到" forState:UIControlStateNormal];
+                [self.btnOrder removeTarget:self action:@selector(clickOrder) forControlEvents:UIControlEventTouchUpInside];
+                [self.btnOrder addTarget:self action:@selector(clickSign) forControlEvents:UIControlEventTouchUpInside];
+                [self.btnOrder mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.mas_equalTo(self.contentView.mas_centerY);
+                    make.size.mas_equalTo(CGSizeMake(45, 25));
+                    make.right.mas_equalTo(self.btnCancel.mas_left).mas_offset(-8);
+                }];
+
+                [self.btnCancel mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.mas_equalTo(self.contentView.mas_centerY);
+                    make.size.mas_equalTo(CGSizeMake(45, 25));
+                    make.right.mas_equalTo(-15);
+                }];
+            } else {
+                self.btnOrder.hidden = YES;
+                self.btnCancel.hidden = YES;
+            }
         } else if (sign == 2) {
             //历史
             self.btnOrder.hidden = YES;
             self.btnCancel.hidden = YES;
         }
-        self.imageSignTag.hidden = !model.signFlag;
     } else {
         self.imageSignTag.hidden = YES;
         if (model.orderFlag==1) {
             //已约 显示取消按钮
             self.btnOrder.hidden = YES;
             self.btnCancel.hidden = NO;
+            //如果开始时间已经开始，则不能取消隐藏
+            if ([model.startTime timeIntervalSince1970] < [[NSDate date] timeIntervalSince1970]) {
+                self.btnCancel.hidden = YES;
+            }
         } else {
             //还未预约 显示预约按钮
             self.btnOrder.hidden = NO;

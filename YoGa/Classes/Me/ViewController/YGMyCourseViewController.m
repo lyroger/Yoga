@@ -188,9 +188,9 @@
     [cell model:model isSign:self.viewType+1];
     @weakify(self)
     cell.signCourse = ^(YGCourseModel *model) {
-        NSLog(@"sign %zd",model.classId);
+        NSLog(@"sign %zd",model.merCourId);
         @strongify(self)
-        [YGCourseModel signCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
+        [YGCourseModel signCoursesById:[NSString stringWithFormat:@"%zd",model.merCourId] target:self success:^(StatusModel *data) {
             @strongify(self)
             if (data.code == 0) {
                 model.signFlag = 1;
@@ -199,10 +199,10 @@
         }];
     };
     cell.cancelCourse = ^(YGCourseModel *model) {
-        NSLog(@"cancel %zd",model.classId);
+        NSLog(@"cancel %zd",model.merCourId);
         [UIAlertView alertWithCallBackBlock:^(NSInteger buttonIndex) {
             if (buttonIndex == 1) {
-                [YGCourseModel cancelCoursesById:[NSString stringWithFormat:@"%zd",model.classId] target:self success:^(StatusModel *data) {
+                [YGCourseModel cancelCoursesById:[NSString stringWithFormat:@"%zd",model.merCourId] target:self success:^(StatusModel *data) {
                     if (data.code == 0) {
                         model.orderFlag = 0;
                         [self.tableDetailView reloadData];
