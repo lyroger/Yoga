@@ -47,7 +47,7 @@
 - (BOOL)updateUserInfoToDB
 {
     YGUserInfo *userInfo = [YGUserInfo shareUserInfo];
-    BOOL worked = [[YGUserInfo getUsingLKDBHelper] updateToDB:userInfo where:[NSString stringWithFormat:@"phone=%@",[YGUserInfo shareUserInfo].phone]];
+    BOOL worked = [[YGUserInfo getUsingLKDBHelper] updateToDB:userInfo where:[NSString stringWithFormat:@"phone='%@'",[YGUserInfo shareUserInfo].phone]];
     if (worked) {
         NSLog(@"更新成功");
     } else {

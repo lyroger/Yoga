@@ -13,7 +13,8 @@
 {
     return @{@"name":@"courseName",
              @"imageURL":@"merchantPictureURL",
-             @"classId":@"id"
+             @"classId":@"id",
+             @"tearcherName":@"tercherName"
              };
 }
 
@@ -45,7 +46,7 @@
     [self dataTaskMethod:HTTPMethodPOST
                     path:path
                   params:ParamsDic
-              networkHUD:NetworkHUDBackground
+              networkHUD:NetworkHUDError
                   target:target success:success];
 }
 

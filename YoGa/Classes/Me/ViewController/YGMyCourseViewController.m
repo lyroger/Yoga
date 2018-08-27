@@ -93,7 +93,7 @@
 
 - (void)requestCourseData
 {
-    [YGCourseModel getOrderCoursesType:self.viewType pageSize:10 pageIndex:self.pageIndex target:self success:^(StatusModel *data) {
+    [YGCourseModel getOrderCoursesType:self.viewType pageSize:10 pageIndex:self.pageIndex*10 target:self success:^(StatusModel *data) {
         [self.tableDetailView.mj_header endRefreshing];
         [self.tableDetailView.mj_footer endRefreshing];
 
@@ -114,8 +114,6 @@
                 self.tableDetailView.mj_footer = [MJDIYFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestCourseData)];
             }
             [self.tableDetailView reloadData];
-        } else {
-
         }
     }];
 }
