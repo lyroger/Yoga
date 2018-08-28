@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-            timestampString = "557115007.137327"
+            timestampString = "557149894.1349961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-            timestampString = "557115007.137815"
+            timestampString = "557149894.135106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
@@ -170,7 +170,7 @@
                   moduleName = "YoGa"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-                  timestampString = "557120179.644588"
+                  timestampString = "557149894.335068"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -185,7 +185,7 @@
                   moduleName = "YoGa"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-                  timestampString = "557120179.647476"
+                  timestampString = "557149894.33735"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -200,7 +200,7 @@
                   moduleName = "YoGa"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-                  timestampString = "557120179.6502351"
+                  timestampString = "557149894.33988"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "193"
@@ -217,7 +217,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-            timestampString = "557115007.138081"
+            timestampString = "557149894.135155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "195"
@@ -233,7 +233,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-            timestampString = "557115007.138289"
+            timestampString = "557149894.135198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "203"
@@ -249,7 +249,7 @@
                   moduleName = "YoGa"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-                  timestampString = "557120179.6623451"
+                  timestampString = "557149894.351566"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "203"
@@ -264,7 +264,7 @@
                   moduleName = "YoGa"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-                  timestampString = "557120179.6644959"
+                  timestampString = "557149894.353856"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "204"
@@ -275,11 +275,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.266"
+                  symbolName = "__destroy_helper_block_.271"
                   moduleName = "YoGa"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/%E5%B7%A5%E4%BD%9C/Git/Yoga/YoGa/Classes/Me/ViewController/YGMyCourseViewController.m"
-                  timestampString = "557120179.6663181"
+                  timestampString = "557149894.356189"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "203"
@@ -287,6 +287,22 @@
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YoGa/Classes/Stadium/ViewController/YGStadiumDetailVC.m"
+            timestampString = "557149384.101912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-loadCoursesData"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

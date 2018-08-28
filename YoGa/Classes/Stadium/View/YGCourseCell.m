@@ -145,9 +145,8 @@
     self.labelTeacher.text = [NSString stringWithFormat:@"%@ %zd人",model.tearcherName,model.count];
     [self.imageHead sd_setImageWithURL:[NSURL URLWithString:model.imageURL] placeholderImage:[UIImage imageNamed:@"list_pic"]];
 
-
+    self.imageSignTag.hidden = !model.signFlag;
     if (sign>0) {
-        self.imageSignTag.hidden = !model.signFlag;
         if (sign == 1) {
             //已约
             if (model.signFlag == 0) {
@@ -177,19 +176,24 @@
             self.btnCancel.hidden = YES;
         }
     } else {
-        self.imageSignTag.hidden = YES;
-        if (model.orderFlag==1) {
-            //已约 显示取消按钮
+        if (model.signFlag == 1) {
             self.btnOrder.hidden = YES;
-            self.btnCancel.hidden = NO;
-            //如果开始时间已经开始，则不能取消隐藏
-            if ([model.startTime timeIntervalSince1970] < [[NSDate date] timeIntervalSince1970]) {
+            self.btnCancel.hidden = YES;
+        } else {
+            //只有在没有签到的情况下才能预约和取消预约
+            if (model.orderFlag==1) {
+                //已约 显示取消按钮
+                self.btnOrder.hidden = YES;
+                self.btnCancel.hidden = NO;
+                //如果开始时间已经开始，则不能取消隐藏
+                if ([model.startTime timeIntervalSince1970] < [[NSDate date] timeIntervalSince1970]) {
+                    self.btnCancel.hidden = YES;
+                }
+            } else {
+                //还未预约 显示预约按钮
+                self.btnOrder.hidden = NO;
                 self.btnCancel.hidden = YES;
             }
-        } else {
-            //还未预约 显示预约按钮
-            self.btnOrder.hidden = NO;
-            self.btnCancel.hidden = YES;
         }
     }
 }

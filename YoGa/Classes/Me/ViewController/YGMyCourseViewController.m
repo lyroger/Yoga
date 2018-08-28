@@ -104,7 +104,7 @@
             }
             [self.courseList addObjectsFromArray:stadiums];
             BOOL hasMoreData = true;
-            if ([[data.originalData objectForKey:@"total"] integerValue] == self.courseList.count) {
+            if ([[data.originalData objectForKey:@"lastPage"] boolValue]) {
                 [self.tableDetailView.mj_footer endRefreshingWithNoMoreData];
                 hasMoreData = false;
             } else {
@@ -204,8 +204,8 @@
             if (buttonIndex == 1) {
                 [YGCourseModel cancelCoursesById:[NSString stringWithFormat:@"%zd",model.merCourId] target:self success:^(StatusModel *data) {
                     if (data.code == 0) {
-                        model.orderFlag = 0;
-                        [self.tableDetailView reloadData];
+                        [self.courseList removeObject:model];
+                        [self.tableDetailView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                     }
                 }];
             }

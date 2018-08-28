@@ -12,7 +12,7 @@
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
     return @{@"name":@"courseName",
-             @"imageURL":@"merchantPictureURL",
+             @"imageURL":@"courseUrl",
              @"classId":@"id",
              @"tearcherName":@"tercherName"
              };

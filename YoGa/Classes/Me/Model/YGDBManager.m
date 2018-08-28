@@ -34,7 +34,7 @@
         return FALSE;
     };
 
-    NSString *createStr = @"CREATE TABLE IF NOT EXISTS userinfo ('phone' INTEGER PRIMARY KEY NOT NULL UNIQUE, 'userId' VARCHAR, 'nickName' VARCHAR, 'token' VARCHAR, 'headImageUrl' VARCHAR, 'gender' VARCHAR)";
+    NSString *createStr = @"CREATE TABLE IF NOT EXISTS userinfo ('phone' VARCHAR PRIMARY KEY NOT NULL UNIQUE, 'userId' VARCHAR, 'nickName' VARCHAR, 'token' VARCHAR, 'headImageUrl' VARCHAR, 'gender' INTEGER)";
     BOOL worked = [database executeUpdate:createStr];
 
     if (!worked)
