@@ -18,6 +18,7 @@
 		040DC168212D300D00FA6699 /* UINavigationController+StackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */; };
 		040DC16B212D316A00FA6699 /* GPSServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC16A212D316A00FA6699 /* GPSServerManager.m */; };
 		0441E4C771207A5B2E6C39C2 /* libPods-YoGa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */; };
+		04F84FCB2134E793006320DF /* YGDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F84FCA2134E793006320DF /* YGDBManager.m */; };
 		04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4DC2114793C00E646BF /* YGStadiumCell.m */; };
 		A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */; };
 		A7066CE0211FCA9200B92231 /* YGStadiumDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDF211FCA9200B92231 /* YGStadiumDetailHeadView.m */; };
@@ -84,6 +85,8 @@
 		040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StackManager.m"; sourceTree = "<group>"; };
 		040DC169212D316A00FA6699 /* GPSServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSServerManager.h; sourceTree = "<group>"; };
 		040DC16A212D316A00FA6699 /* GPSServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSServerManager.m; sourceTree = "<group>"; };
+		04F84FC92134E793006320DF /* YGDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGDBManager.h; sourceTree = "<group>"; };
+		04F84FCA2134E793006320DF /* YGDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGDBManager.m; sourceTree = "<group>"; };
 		04FEA4DB2114793C00E646BF /* YGStadiumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumCell.h; sourceTree = "<group>"; };
 		04FEA4DC2114793C00E646BF /* YGStadiumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGStadiumCell.m; sourceTree = "<group>"; };
 		0E623DC9143D5EB30C79F11C /* Pods-YoGa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoGa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoGa/Pods-YoGa.debug.xcconfig"; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 			children = (
 				A7CB4701212914F100AFD218 /* YGUserInfo.h */,
 				A7CB4702212914F100AFD218 /* YGUserInfo.m */,
+				04F84FC92134E793006320DF /* YGDBManager.h */,
+				04F84FCA2134E793006320DF /* YGDBManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -547,7 +552,6 @@
 				A78BCE0F2111F04E00E6A48A /* Frameworks */,
 				A78BCE102111F04E00E6A48A /* Resources */,
 				786B02BBF11AC1460D0BCA9C /* [CP] Copy Pods Resources */,
-				F2D3C5DD4C8E57F5B9222049 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -618,7 +622,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		786B02BBF11AC1460D0BCA9C /* [CP] Copy Pods Resources */ = {
@@ -645,21 +649,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoGa/Pods-YoGa-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2D3C5DD4C8E57F5B9222049 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoGa/Pods-YoGa-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -680,6 +669,7 @@
 				040DC16B212D316A00FA6699 /* GPSServerManager.m in Sources */,
 				040DC168212D300D00FA6699 /* UINavigationController+StackManager.m in Sources */,
 				A7066CEC211FE50100B92231 /* YGSelectedDateView.m in Sources */,
+				04F84FCB2134E793006320DF /* YGDBManager.m in Sources */,
 				A71877452121C3290097951E /* NSString+BaseModel.m in Sources */,
 				040DC14D212D017F00FA6699 /* YGEditUserInfoVC.m in Sources */,
 				A78BCE442111F96500E6A48A /* YGStadiumViewController.m in Sources */,

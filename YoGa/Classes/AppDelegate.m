@@ -31,7 +31,7 @@
 
 - (void)authorizeOperation {
     [[YGUserInfo shareUserInfo] getUserInfoFromLocal];
-    if ([YGUserInfo shareUserInfo].token) {
+    if ([YGUserInfo shareUserInfo].token.length) {
         self.tabBarVC = [[YGMainTabbarViewController alloc] init];
         self.window.rootViewController = self.tabBarVC;
     } else {

@@ -47,7 +47,9 @@
 - (BOOL)updateUserInfoToDB
 {
     YGUserInfo *userInfo = [YGUserInfo shareUserInfo];
-    BOOL worked = [[YGUserInfo getUsingLKDBHelper] updateToDB:userInfo where:[NSString stringWithFormat:@"phone='%@'",[YGUserInfo shareUserInfo].phone]];
+//    BOOL worked = [[YGUserInfo getUsingLKDBHelper] updateToDB:userInfo where:[NSString stringWithFormat:@"phone='%@'",[YGUserInfo shareUserInfo].phone]];
+    YGDBManager *dbManager = [[YGDBManager alloc] init];
+    BOOL worked = [dbManager updateUserInfo:userInfo];
     if (worked) {
         NSLog(@"更新成功");
     } else {
@@ -60,7 +62,9 @@
 {
     NSString *userAcount = [[NSUserDefaults standardUserDefaults] objectForKey:kLastUserAcount];
     if (userAcount.length) {
-        YGUserInfo *userInfo = [[YGUserInfo getUsingLKDBHelper] searchSingle:[YGUserInfo class] where:[NSString stringWithFormat:@"phone='%@'",userAcount] orderBy:nil];
+//        YGUserInfo *userInfo = [[YGUserInfo getUsingLKDBHelper] searchSingle:[YGUserInfo class] where:[NSString stringWithFormat:@"phone='%@'",userAcount] orderBy:nil];
+        YGDBManager *dbManager = [[YGDBManager alloc] init];
+        YGUserInfo *userInfo = [dbManager fetchUserInfoByPhone:userAcount];
         [self setUserInfo:userInfo];
     }
 }
