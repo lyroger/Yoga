@@ -45,6 +45,8 @@
         
         self.addressInfoView = [YGImageTextHView new];
         self.addressInfoView.imageView.image = [UIImage imageNamed:@"list_ic_location"];
+        UITapGestureRecognizer *tapAddress = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAddress)];
+        [self.addressInfoView addGestureRecognizer:tapAddress];
         self.addressInfoView.labelText.font = [UIFont systemFontOfSize:12];
         [self.leftContentView addSubview:self.addressInfoView];
         
@@ -108,6 +110,12 @@
 - (void)tapPhone{
     if (self.callPhone) {
         self.callPhone();
+    }
+}
+
+- (void)tapAddress{
+    if (self.detailAddressByMap) {
+        self.detailAddressByMap();
     }
 }
 

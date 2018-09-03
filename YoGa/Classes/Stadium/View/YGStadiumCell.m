@@ -26,6 +26,7 @@
         self.imageHead = [UIImageView new];
         self.imageHead.contentMode = UIViewContentModeScaleAspectFill;
         self.imageHead.backgroundColor = UIColorHex(0xf4f4f4);
+        self.imageHead.layer.masksToBounds = YES;
         [self.contentView addSubview:self.imageHead];
 
         self.labelName = [UILabel new];

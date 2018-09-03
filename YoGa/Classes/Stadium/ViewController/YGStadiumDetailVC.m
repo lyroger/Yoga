@@ -12,6 +12,7 @@
 #import "YGCourseModel.h"
 #import "YGSelectedDateView.h"
 #import "YGSelectDateModel.h"
+#import "YGAddressDetailByMapVC.h"
 
 @interface YGStadiumDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -46,6 +47,16 @@
                 [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:num]]];
                 [self.view addSubview:callWebview];
             }
+        };
+        _headView.detailAddressByMap = ^{
+            @strongify(self);
+            NSLog(@"查看地图");
+            YGAddressDetailByMapVC *vc = [[YGAddressDetailByMapVC alloc] init];
+            vc.latitude = self.stadiumInfo.latitude;
+            vc.longitude = self.stadiumInfo.longitude;
+            vc.address = self.stadiumInfo.address;
+            vc.titleName = self.stadiumInfo.name;
+            [self.navigationController pushViewController:vc animated:YES];
         };
     }
     return _headView;

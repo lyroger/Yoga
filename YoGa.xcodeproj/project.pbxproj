@@ -18,6 +18,8 @@
 		040DC168212D300D00FA6699 /* UINavigationController+StackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */; };
 		040DC16B212D316A00FA6699 /* GPSServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DC16A212D316A00FA6699 /* GPSServerManager.m */; };
 		0441E4C771207A5B2E6C39C2 /* libPods-YoGa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2150BDBBFE7BEA9AE4A8AD11 /* libPods-YoGa.a */; };
+		04638467213CC97800FAD580 /* YGAddressDetailByMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04638466213CC97800FAD580 /* YGAddressDetailByMapVC.m */; };
+		0463846A213CCA5700FAD580 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04638469213CCA5700FAD580 /* MapAnnotation.m */; };
 		04F84FCB2134E793006320DF /* YGDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F84FCA2134E793006320DF /* YGDBManager.m */; };
 		04FEA4DD2114793C00E646BF /* YGStadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEA4DC2114793C00E646BF /* YGStadiumCell.m */; };
 		A7066CDD211FC9B100B92231 /* YGStadiumDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */; };
@@ -85,6 +87,10 @@
 		040DC166212D300D00FA6699 /* UINavigationController+StackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StackManager.m"; sourceTree = "<group>"; };
 		040DC169212D316A00FA6699 /* GPSServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSServerManager.h; sourceTree = "<group>"; };
 		040DC16A212D316A00FA6699 /* GPSServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSServerManager.m; sourceTree = "<group>"; };
+		04638465213CC97800FAD580 /* YGAddressDetailByMapVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGAddressDetailByMapVC.h; sourceTree = "<group>"; };
+		04638466213CC97800FAD580 /* YGAddressDetailByMapVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGAddressDetailByMapVC.m; sourceTree = "<group>"; };
+		04638468213CCA5700FAD580 /* MapAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		04638469213CCA5700FAD580 /* MapAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		04F84FC92134E793006320DF /* YGDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGDBManager.h; sourceTree = "<group>"; };
 		04F84FCA2134E793006320DF /* YGDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGDBManager.m; sourceTree = "<group>"; };
 		04FEA4DB2114793C00E646BF /* YGStadiumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGStadiumCell.h; sourceTree = "<group>"; };
@@ -445,6 +451,8 @@
 				A7066CE5211FCCFC00B92231 /* YGCourseModel.m */,
 				A7066CED211FE78900B92231 /* YGSelectDateModel.h */,
 				A7066CEE211FE78900B92231 /* YGSelectDateModel.m */,
+				04638468213CCA5700FAD580 /* MapAnnotation.h */,
+				04638469213CCA5700FAD580 /* MapAnnotation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,6 +466,8 @@
 				A7CB4719212947EC00AFD218 /* YGStadiumSearchViewController.m */,
 				A7066CDB211FC9B100B92231 /* YGStadiumDetailVC.h */,
 				A7066CDC211FC9B100B92231 /* YGStadiumDetailVC.m */,
+				04638465213CC97800FAD580 /* YGAddressDetailByMapVC.h */,
+				04638466213CC97800FAD580 /* YGAddressDetailByMapVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -684,6 +694,8 @@
 				040DC15E212D14F600FA6699 /* NSString+Contains.m in Sources */,
 				A7CB47122129242E00AFD218 /* MyActivityIndicatorView.m in Sources */,
 				A7CB470021290CC700AFD218 /* NSString+MyString.m in Sources */,
+				04638467213CC97800FAD580 /* YGAddressDetailByMapVC.m in Sources */,
+				0463846A213CCA5700FAD580 /* MapAnnotation.m in Sources */,
 				A78BCE252111F04E00E6A48A /* main.m in Sources */,
 				A7066CE3211FCB5800B92231 /* YGCourseCell.m in Sources */,
 				040DC151212D09F500FA6699 /* HAlertController.m in Sources */,
