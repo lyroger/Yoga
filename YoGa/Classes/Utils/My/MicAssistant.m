@@ -339,8 +339,7 @@
                 }
             } else {
                 isCan = NO;
-                url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
-                isCanOpen = [[UIApplication sharedApplication] canOpenURL:url];
+                isCanOpen = NO;
             }
         }
     } else if (type == NoAccessMailType) {

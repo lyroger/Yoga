@@ -848,7 +848,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "963bf9fd-0f22-417f-839e-3dbc17a0028d";
 				PROVISIONING_PROFILE_SPECIFIER = YuJiaLian_dev_profile;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -870,7 +870,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "486b142e-f195-4480-aff5-95b9d5cb42f8";
 				PROVISIONING_PROFILE_SPECIFIER = YuJiaLian_pro_profile;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

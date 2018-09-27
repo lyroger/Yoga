@@ -67,6 +67,7 @@
     self.codeText = [UITextField new];
     self.codeText.keyboardType = UIKeyboardTypeNumberPad;
     self.codeText.placeholder = @"请输入短信验证码";
+    self.codeText.secureTextEntry = YES;
     self.codeText.font = [UIFont systemFontOfSize:15];
     [codeContent addSubview:self.codeText];
     
